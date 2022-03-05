@@ -13,7 +13,7 @@ class ProfileController extends Controller
     {
         $admin = Admin::find(auth('admin')->user()->id);
 
-        return view('cpanel.profile.edit', compact('admin'));
+        return view('dashboard.profile.edit', compact('admin'));
     }
 
     public function updateProfile(ProfileRequest $request)

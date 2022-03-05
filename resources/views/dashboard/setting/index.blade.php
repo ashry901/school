@@ -1319,6 +1319,9 @@
     <script src="{{asset('ashry/back/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('ashry/back/app-assets/js/scripts/forms/wizard-steps.js')}}"></script>
 
+    <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
+    <script src="{{asset('ashry/back/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"></script>
+
 {{--    <script>--}}
 {{--        $(".number-tab-steps").steps({--}}
 {{--            headerTag: "h6",--}}
@@ -1334,8 +1337,7 @@
 {{--        });--}}
 {{--    </script>--}}
 
-    <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
-    <script src="{{asset('ashry/back/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"></script>
+
 
 
     @toastr_js

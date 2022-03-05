@@ -7,7 +7,8 @@
         <div class="card-header border-0">
             <div class="card-title text-center">
                 <div class="p-1">
-                    <img src="{{asset('ashry/back/app-assets/images/logo/logo-dark.png')}}" alt="...">
+                    <img src="{{asset('ashry/back/app-assets/images/logo/thumbspng.png')}}"
+                         alt="..." width="50px">
                 </div>
             </div>
             <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
