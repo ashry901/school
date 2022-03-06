@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'sections')
+@section('title', 'students')
 
 @section('style')
     @toastr_css
@@ -68,6 +68,8 @@
     </div>
 
 </div>
+
+
 
 
 <div class="row">

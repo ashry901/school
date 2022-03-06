@@ -31,6 +31,7 @@
             </div>
         </div>
     </div>
+
     <div class="content-header-right col-md-6 col-12">
         <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
             <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Settings</button>
@@ -148,6 +149,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+
 
                                     <div class="row">
                                         <div class="col-md-6">
@@ -1121,6 +1124,7 @@
                             <form class="form">
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -1135,6 +1139,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -1319,9 +1324,6 @@
     <script src="{{asset('ashry/back/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('ashry/back/app-assets/js/scripts/forms/wizard-steps.js')}}"></script>
 
-    <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
-    <script src="{{asset('ashry/back/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"></script>
-
 {{--    <script>--}}
 {{--        $(".number-tab-steps").steps({--}}
 {{--            headerTag: "h6",--}}
@@ -1337,7 +1339,8 @@
 {{--        });--}}
 {{--    </script>--}}
 
-
+    <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
+    <script src="{{asset('ashry/back/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"></script>
 
 
     @toastr_js

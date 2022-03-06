@@ -13,160 +13,160 @@
 <div class="content-header row">
 
     <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">
-                {{ trans('cpanel/sections.Sections') }}
-            </h3>
-            <div class="row breadcrumbs-top">
-                <div class="breadcrumb-wrapper col-12">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{route('admin.dashboard')}}">
-                                {{ trans('cpanel/main.Dashboard') }}
-                            </a>
-                        </li>
+        <h3 class="content-header-title">
+            {{ trans('cpanel/sections.Sections') }}
+        </h3>
+        <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-12">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{route('admin.dashboard')}}">
+                            {{ trans('cpanel/main.Dashboard') }}
+                        </a>
+                    </li>
 
-                        <li class="breadcrumb-item active">
-                            {{ trans('cpanel/sections.Sections') }}
-                        </li>
-                    </ol>
-                </div>
+                    <li class="breadcrumb-item active">
+                        {{ trans('cpanel/sections.Sections') }}
+                    </li>
+                </ol>
             </div>
         </div>
+    </div>
 
     <div class="content-header-right col-md-6 col-12">
-            <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
 
 
-                <div class="form-group">
-                    <button type="button"
-                            class="btn btn-outline-success block btn-lg"
-                            data-toggle="modal" data-target="#defaultSize">
-                        {{ trans('cpanel/sections.Add New Section') }}
-                    </button>
+            <div class="form-group">
+                <button type="button"
+                        class="btn btn-outline-success block btn-lg"
+                        data-toggle="modal" data-target="#defaultSize">
+                    {{ trans('cpanel/sections.Add New Section') }}
+                </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade text-left" id="defaultSize" tabindex="-1"
-                         role="dialog" aria-labelledby="myModalLabel18" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel18">
-                                            {{ trans('cpanel/sections.Add New Section') }}
-                                        </h4>
+                <!-- Modal -->
+                <div class="modal fade text-left" id="defaultSize" tabindex="-1"
+                     role="dialog" aria-labelledby="myModalLabel18" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel18">
+                                        {{ trans('cpanel/sections.Add New Section') }}
+                                    </h4>
 
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
 
-                                    <div class="modal-body">
+                                <div class="modal-body">
 
-                                        <form class="form" action="{{ route('sections.store') }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <div class="form-body">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">
-                                                                {{ trans('cpanel/sections.Section Name Ar') }}
-                                                            </label>
+                                    <form class="form" action="{{ route('sections.store') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">
+                                                            {{ trans('cpanel/sections.Section Name Ar') }}
+                                                        </label>
 
-                                                            <input type="text"
-                                                                   name="name_section_ar"
-                                                                   class="form-control"
-                                                                   placeholder="{{ trans('cpanel/sections.Section_name_ar') }}">
-                                                        </div>
+                                                        <input type="text"
+                                                               name="name_section_ar"
+                                                               class="form-control"
+                                                               placeholder="{{ trans('cpanel/sections.Section_name_ar') }}">
                                                     </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput2">
-                                                                {{ trans('cpanel/sections.Section Name En') }}
-                                                            </label>
-
-                                                            <input type="text"
-                                                                   name="name_section_en"
-                                                                   class="form-control"
-                                                                   placeholder="{{ trans('cpanel/sections.Section_name_en') }}">
-                                                        </div>
-                                                    </div>
-
                                                 </div>
 
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">
+                                                            {{ trans('cpanel/sections.Section Name En') }}
+                                                        </label>
 
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput5">
-                                                                {{ trans('cpanel/sections.Name_Grade') }}
-                                                            </label>
+                                                        <input type="text"
+                                                               name="name_section_en"
+                                                               class="form-control"
+                                                               placeholder="{{ trans('cpanel/sections.Section_name_en') }}">
+                                                    </div>
+                                                </div>
 
-                                                            <select name="grade_id" class="form-control"
-                                                                    onchange="console.log($(this).val())">
+                                            </div>
 
-                                                                <option value="" selected="" disabled="">
-                                                                    {{ trans('cpanel/sections.Select_Grade') }}
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput5">
+                                                            {{ trans('cpanel/sections.Name_Grade') }}
+                                                        </label>
+
+                                                        <select name="grade_id" class="form-control"
+                                                                onchange="console.log($(this).val())">
+
+                                                            <option value="" selected="" disabled="">
+                                                                {{ trans('cpanel/sections.Select_Grade') }}
+                                                            </option>
+                                                            @foreach ($list_grades as $list_grade)
+                                                                <option value="{{ $list_grade->id }}">
+                                                                    {{ $list_grade->name }}
                                                                 </option>
-                                                                @foreach ($list_grades as $list_grade)
-                                                                    <option value="{{ $list_grade->id }}">
-                                                                        {{ $list_grade->name }}
-                                                                    </option>
-                                                                @endforeach
+                                                            @endforeach
 
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput6">
-                                                                {{ trans('cpanel/sections.Name_Class') }}
-                                                            </label>
-
-                                                            <select name="class_id" class="form-control">
-
-                                                            </select>
-                                                        </div>
+                                                        </select>
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="projectinput5">
-                                                                {{ trans('cpanel/sections.Name_Teacher') }}
-                                                            </label>
-                                                            <select multiple name="teacher_id[]"
-                                                                    class="form-control">
-                                                                @foreach($teachers as $teacher)
-                                                                    <option value="{{$teacher->id}}">{{$teacher->name}}</option>
-                                                                @endforeach
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput6">
+                                                            {{ trans('cpanel/sections.Name_Class') }}
+                                                        </label>
 
-                                                            </select>
-                                                        </div>
+                                                        <select name="class_id" class="form-control">
+
+                                                        </select>
                                                     </div>
+                                                </div>
+                                            </div>
 
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="projectinput5">
+                                                            {{ trans('cpanel/sections.Name_Teacher') }}
+                                                        </label>
+                                                        <select multiple name="teacher_id[]"
+                                                                class="form-control">
+                                                            @foreach($teachers as $teacher)
+                                                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                                            @endforeach
+
+                                                        </select>
+                                                    </div>
                                                 </div>
 
                                             </div>
 
-                                            <div class="form-actions">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i>
-                                                    {{ trans('cpanel/sections.Submit') }}
-                                                </button>
-                                            </div>
-                                        </form>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="la la-check-square-o"></i>
+                                                {{ trans('cpanel/sections.Submit') }}
+                                            </button>
+                                        </div>
+                                    </form>
 
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                </div>
-
+                    </div>
             </div>
+
         </div>
+    </div>
 
 </div>
 

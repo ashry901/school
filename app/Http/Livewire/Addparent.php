@@ -166,7 +166,7 @@ class Addparent extends Component
                 }
             }
 
-            $this->successMessage = trans('messages.success');
+            $this->successMessage = trans('cpanel/messages.success');
 
             $this->clearForm();
 
@@ -247,7 +247,6 @@ class Addparent extends Component
                     'blood_type_father_id'  => $this->blood_type_father_id,
                     'address_father'        => $this->address_father,
                     'religion_father_id'    => $this->religion_father_id,
-
                     'name_mother'           => $this->name_mother,
                     //'name_mother_en'        => $this->name_mother_en,
                     'job_mother'            => $this->job_mother,
@@ -263,7 +262,7 @@ class Addparent extends Component
                 ]);
 
             }
-            $this->successMessage = trans('messages.success');
+            $this->successMessage = trans('cpanel/messages.Update');
 
             $this->clearForm();
 
@@ -281,8 +280,18 @@ class Addparent extends Component
 
     public function delete($id)
     {
-        Guardian::findOrFail($id)->delete();
-        $this->successMessage = trans('messages.success');
+        try {
+            Guardian::findOrFail($id)->delete();
+
+            $this->successMessage = trans('cpanel/messages.Delete');
+        }
+
+        catch (\Exception $e) {
+
+            $this->catchError = $e->getMessage();
+        }
+
+
         //return redirect()->to('/add_parent');
     }
 
