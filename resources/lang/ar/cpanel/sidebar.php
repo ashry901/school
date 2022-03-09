@@ -44,7 +44,6 @@ return [
     'Users'                 => 'المستخدمين',
     'Information'           => 'معلومات الطلاب',
     'Promotions'            => 'الترقيات',
-    '' => '',
-    '' => '',
-
+    'Quizzes List'          => 'قائمة الاختبارات',
+    'Questions List'        => 'قائمة الاسئلة',
 ];

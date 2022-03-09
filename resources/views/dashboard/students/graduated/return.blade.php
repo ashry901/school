@@ -16,7 +16,7 @@
                     <input type="hidden" name="id" value="{{$student->id}}">
 
                     <h5 style="font-family: 'Cairo', sans-serif;">
-                        {{trans('cpanel/students.Are you sure about canceling the graduation process?')}}
+                        {{trans('cpanel/students.canceling graduation')}}
                     </h5>
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 

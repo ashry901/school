@@ -58,7 +58,7 @@ class StudentRepository implements StudentRepositoryInterface
 
             $Edit_Students->save();
 
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
 
             return redirect()->route('Students.index');
 
@@ -98,6 +98,13 @@ class StudentRepository implements StudentRepositoryInterface
         return $list_sections;
     }
 
+    //Get Blods
+//    public function getBlods($id)
+//    {
+//        $list_sections = Bloodtype::where("blood_id", $id)->pluck("name_blod", "id");
+//        return $list_sections;
+//    }
+
     public function Store_Student($request)
     {
         DB::beginTransaction();
@@ -135,8 +142,10 @@ class StudentRepository implements StudentRepositoryInterface
                     $images->save();
                 }
             }
-            DB::commit(); // insert data
-            toastr()->success(trans('messages.success'));
+
+            DB::commit();
+
+            toastr()->success(trans('cpanel/messages.success'));
             return redirect()->route('Students.create');
 
         }
@@ -151,7 +160,7 @@ class StudentRepository implements StudentRepositoryInterface
     public function Delete_Student($request)
     {
         Student::destroy($request->id);
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('cpanel/messages.Delete'));
         return redirect()->route('Students.index');
     }
 
@@ -169,7 +178,7 @@ class StudentRepository implements StudentRepositoryInterface
             $images->imageable_type = 'App\Models\Student';
             $images->save();
         }
-        toastr()->success(trans('messages.success'));
+        toastr()->success(trans('cpanel/messages.success'));
         return redirect()->route('Students.show',$request->student_id);
     }
 
@@ -185,7 +194,7 @@ class StudentRepository implements StudentRepositoryInterface
 
         // Delete in data
         image::where('id',$request->id)->where('filename',$request->filename)->delete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('cpanel/messages.Delete'));
         return redirect()->route('Students.show', $request->student_id);
     }
 

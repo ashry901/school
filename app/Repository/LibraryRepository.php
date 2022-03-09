@@ -36,7 +36,7 @@ class LibraryRepository implements LibraryRepositoryInterface
             $books->save();
             $this->uploadFile($request,'file_name');
 
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
 
             return redirect()->route('library.index');
         } catch (\Exception $e) {
@@ -74,7 +74,7 @@ class LibraryRepository implements LibraryRepositoryInterface
             $book->teacher_id   = 1;
             $book->save();
 
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
             return redirect()->route('library.index');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -85,7 +85,7 @@ class LibraryRepository implements LibraryRepositoryInterface
     {
         $this->deleteFile($request->file_name);
         library::destroy($request->id);
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('cpavel/messages.Delete'));
         return redirect()->route('library.index');
     }
 

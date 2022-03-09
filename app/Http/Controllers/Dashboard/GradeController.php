@@ -34,7 +34,7 @@ class GradeController extends Controller
 
           $grade->save();
 
-          toastr()->success(trans('messages.success'));
+          toastr()->success(trans('cpavel/messages.success'));
 
           return redirect()->route('grades.index');
 
@@ -55,7 +55,7 @@ class GradeController extends Controller
           $grades->name = ['ar' => $request->name, 'en' => $request->name_en],
           $grades->notes = $request->notes,
           ]);
-          toastr()->success(trans('messages.Update'));
+          toastr()->success(trans('cpavel/messages.Update'));
           return redirect()->route('grades.index');
       }
       catch
@@ -71,7 +71,7 @@ class GradeController extends Controller
         if($MyClass_id->count() == 0){
 
             $grades = Grade::findOrFail($request->id)->delete();
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpavel/messages.Delete'));
             return redirect()->route('grades.index');
         }else{
             toastr()->error(trans('Grades_trans.delete_Grade_Error'));

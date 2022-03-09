@@ -15,7 +15,7 @@
                     @method('DELETE')
                     <input type="hidden" name="id" value="{{$promotion->id}}">
                     <h5 style="font-family: 'Cairo', sans-serif;">
-                        {{trans('cpanel/students.Are you sure about the student withdrawal process?')}}
+                        {{trans('cpanel/students.sure delete one')}}
                         {{$promotion->student->name}}
                     </h5>
                     <div class="modal-footer">

@@ -37,7 +37,7 @@ class SectionController extends Controller
 
         $sections->teachers()->attach($request->teacher_id);
 
-        toastr()->success(trans('messages.success'));
+        toastr()->success(trans('cpavel/messages.success'));
 
         return redirect()->route('sections.index');
       }
@@ -73,7 +73,7 @@ class SectionController extends Controller
         }
 
         $sections->save();
-        toastr()->success(trans('messages.Update'));
+        toastr()->success(trans('cpavel/messages.Update'));
 
         return redirect()->route('sections.index');
       }
@@ -87,7 +87,7 @@ class SectionController extends Controller
   public function destroy(request $request)
   {
     Section::findOrFail($request->id)->delete();
-    toastr()->error(trans('messages.Delete'));
+    toastr()->error(trans('cpavel/messages.Delete'));
     return redirect()->route('sections.index');
   }
 

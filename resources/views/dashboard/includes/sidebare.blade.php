@@ -56,10 +56,6 @@
                 {{trans('cpanel/sidebar.Students')}}
             </span>
 
-            <span class="badge badge badge-info badge-pill float-right mr-2">
-                {{\App\Models\Student::count()}}
-            </span>
-
         </a>
 
         <ul class="menu-content">
@@ -70,7 +66,7 @@
                         {{trans('cpanel/sidebar.Information')}}
                     </span>
                     <span class="badge badge badge-pill badge-success float-right mr-2">
-                        50005
+                        {{\App\Models\Student::count()}}
                     </span>
                 </a>
 
@@ -225,7 +221,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('Fees.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Studying Fees')}}
                     </span>
@@ -233,7 +229,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('Fees_Invoices.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Invoices')}}
                     </span>
@@ -241,7 +237,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('receipt_students.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Receipt')}}
                     </span>
@@ -249,7 +245,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('ProcessingFee.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Fee Exclusion')}}
                     </span>
@@ -257,7 +253,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('Payment_students.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Exchange Receipts')}}
                     </span>
@@ -278,7 +274,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('Attendance.index')}}"><i></i>
                     <span data-i18n="Attendance Students">
                         {{trans('cpanel/sidebar.Attendance Students')}}
                     </span>
@@ -299,7 +295,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('subjects.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.List Subjects')}}
                     </span>
@@ -320,9 +316,17 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('Quizzes.index')}}"><i></i>
                     <span data-i18n="Quizzes List">
-                        {{trans('cpanel/sidebar.List Quizzes')}}
+                        {{trans('cpanel/sidebar.Quizzes List')}}
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a class="menu-item" href="{{route('questions.index')}}"><i></i>
+                    <span data-i18n="Questions List">
+                        {{trans('cpanel/sidebar.Questions List')}}
                     </span>
                 </a>
             </li>
@@ -341,7 +345,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href=""><i></i>
+                <a class="menu-item" href="{{route('library.index')}}"><i></i>
                     <span data-i18n="Books List">
                         {{trans('cpanel/sidebar.Books List')}}
                     </span>
@@ -363,7 +367,7 @@
 
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="#"><i></i>
+                <a class="menu-item" href="{{route('online_classes.index')}}"><i></i>
                     <span data-i18n="Zoome Online">
                         {{trans('cpanel/sidebar.Zoom Online')}}
                     </span>

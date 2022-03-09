@@ -47,7 +47,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
 
             }
 
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
             return redirect()->back();
 
         }

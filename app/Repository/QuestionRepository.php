@@ -32,7 +32,7 @@ class QuestionRepository implements QuestionRepositoryInterface
 
             $question->save();
 
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
             return redirect()->route('questions.create');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -58,7 +58,7 @@ class QuestionRepository implements QuestionRepositoryInterface
             $question->quizze_id    = $request->quizze_id;
             $question->save();
 
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
             return redirect()->route('questions.index');
 
         } catch (\Exception $e) {
@@ -70,7 +70,7 @@ class QuestionRepository implements QuestionRepositoryInterface
     {
         try {
             Question::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpavel/messages.Delete'));
             return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

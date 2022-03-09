@@ -30,7 +30,8 @@ class SubjectRepository implements SubjectRepositoryInterface
             $subjects->classroom_id = $request->classroom_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
-            toastr()->success(trans('messages.success'));
+
+            toastr()->success(trans('cpavel/messages.success'));
             return redirect()->route('subjects.create');
         }
         catch (\Exception $e) {
@@ -57,7 +58,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             $subjects->teacher_id   = $request->teacher_id;
             $subjects->save();
 
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
             return redirect()->route('subjects.create');
         }
         catch (\Exception $e) {
@@ -69,7 +70,7 @@ class SubjectRepository implements SubjectRepositoryInterface
     {
         try {
             Subject::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpavel/messages.Delete'));
             return redirect()->back();
         }
 

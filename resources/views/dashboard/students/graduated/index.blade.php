@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'sections')
+@section('title', 'graduated')
 
 @section('style')
     @toastr_css
@@ -23,11 +23,18 @@
                     </li>
                     <li class="breadcrumb-item">
                         <a href="{{route('Students.index')}}">
-                            {{trans('cpanel/students.Students')}}
+                            {{trans('cpanel/students.All Students')}}
                         </a>
                     </li>
+
+                    <li class="breadcrumb-item">
+                        <a href="{{route('Graduated.create')}}">
+                            {{trans('cpanel/students.Add Student Graduate')}}
+                        </a>
+                    </li>
+
                     <li class="breadcrumb-item active">
-                        {{trans('cpanel/students.All Students')}}
+                        {{trans('cpanel/students.Students')}}
                     </li>
                 </ol>
             </div>
@@ -79,7 +86,7 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                    <table id="datatable" class="table table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
                                         <thead>

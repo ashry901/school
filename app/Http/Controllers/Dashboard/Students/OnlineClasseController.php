@@ -16,19 +16,19 @@ class OnlineClasseController extends Controller
     public function index()
     {
         $online_classes = online_classe::all();
-        return view('pages.online_classes.index', compact('online_classes'));
+        return view('dashboard.online_classes.index', compact('online_classes'));
     }
 
     public function create()
     {
         $grades = Grade::all();
-        return view('pages.online_classes.add', compact('grades'));
+        return view('dashboard.online_classes.add', compact('grades'));
     }
 
     public function indirectCreate()
     {
         $grades = Grade::all();
-        return view('pages.online_classes.indirect', compact('grades'));
+        return view('dashboard.online_classes.indirect', compact('grades'));
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class OnlineClasseController extends Controller
                 'start_url'     => $meeting->start_url,
                 'join_url'      => $meeting->join_url,
             ]);
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
 
             return redirect()->route('online_classes.index');
 
@@ -77,7 +77,7 @@ class OnlineClasseController extends Controller
                 'start_url'     => $request->start_url,
                 'join_url'      => $request->join_url,
             ]);
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
 
             return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
@@ -118,7 +118,7 @@ class OnlineClasseController extends Controller
                 online_classe::destroy($request->id);
             }
 
-            toastr()->success(trans('messages.Delete'));
+            toastr()->success(trans('cpavel/messages.Delete'));
             return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);

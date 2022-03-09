@@ -33,7 +33,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 ->where('academic_year', $request->academic_year)->get();
 
             if($students->count() < 1){
-                return redirect()->back()->with('error_promotions', __('لاتوجد بيانات في جدول الطلاب'));
+                return redirect()->back()->with('error_promotions', __('cpanel/students.error-promotions'));
             }
 
             // update in table student
@@ -63,7 +63,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
             }
             DB::commit();
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
             return redirect()->back();
 
         } catch (\Exception $e) {
@@ -98,7 +98,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
              }
                 DB::commit();
-                toastr()->error(trans('messages.Delete'));
+                toastr()->error(trans('cpavel/messages.Delete'));
                 return redirect()->back();
 
             }
@@ -116,7 +116,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 Promotion::destroy($request->id);
 
                 DB::commit();
-                toastr()->error(trans('messages.Delete'));
+                toastr()->error(trans('cpavel/messages.Delete'));
 
                 return redirect()->back();
 

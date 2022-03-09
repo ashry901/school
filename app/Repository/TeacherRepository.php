@@ -43,7 +43,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
             DB::commit();
 
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
             //return redirect()->route('teachers.index')->with(['success' => 'Added Successfully']);
             return redirect()->route('teachers.index');
         }
@@ -76,7 +76,7 @@ class TeacherRepository implements TeacherRepositoryInterface
             $teachers->save();
 
             DB::commit();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
             return redirect()->route('teachers.index');
         }
         catch (Exception $e) {
@@ -88,7 +88,7 @@ class TeacherRepository implements TeacherRepositoryInterface
     public function DeleteTeachers($request)
     {
         Teacher::findOrFail($request->id)->delete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('cpavel/messages.Delete'));
         return redirect()->route('teachers.index');
     }
 

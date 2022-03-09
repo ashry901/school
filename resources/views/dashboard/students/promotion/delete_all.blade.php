@@ -15,7 +15,7 @@
                     @method('DELETE')
 
                     <input type="hidden" name="page_id" value="1">
-                    <h5 style="font-family: 'Cairo', sans-serif;">{{trans('Students_trans.Are you sure of the process of reviewing all students?')}}</h5>
+                    <h5 style="font-family: 'Cairo', sans-serif;">{{trans('cpanel/students.Sure Delete All ?')}}</h5>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                             {{trans('cpanel/students.Close')}}

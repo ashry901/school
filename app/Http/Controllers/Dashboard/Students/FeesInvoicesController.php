@@ -20,31 +20,25 @@ class FeesInvoicesController extends Controller
         return $this->Fees_Invoices->index();
     }
 
-
-
     public function store(Request $request)
     {
         return $this->Fees_Invoices->store($request);
     }
-
 
     public function show($id)
     {
         return $this->Fees_Invoices->show($id);
     }
 
-
     public function edit($id)
     {
         return $this->Fees_Invoices->edit($id);
     }
 
-
     public function update(Request $request)
     {
         return $this->Fees_Invoices->update($request);
     }
-
 
     public function destroy(Request $request)
     {

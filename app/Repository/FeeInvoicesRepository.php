@@ -68,8 +68,9 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
 
             DB::commit();
 
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
             return redirect()->route('Fees_Invoices.index');
+
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -95,7 +96,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
             $StudentAccount->save();
             DB::commit();
 
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
             return redirect()->route('Fees_Invoices.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -107,7 +108,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
     {
         try {
             Fee_invoice::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpavel/messages.Delete'));
             return redirect()->back();
         }
 

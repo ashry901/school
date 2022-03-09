@@ -46,6 +46,11 @@ class Student extends Authenticatable
         return $this->belongsTo('App\Models\Nationalitie', 'nationalitie_id');
     }
 
+//    public function Bloodtype()
+//    {
+//        return $this->belongsTo('App\Models\Bloodtype', 'blood_id');
+//    }
+
     public function myparent()
     {
         return $this->belongsTo('App\Models\Guardian', 'parent_id');

@@ -125,11 +125,9 @@
 <script src="{{asset('ashry/back/app-assets/vendors/js/charts/apexcharts/apexcharts.min.js')}}"></script>
 <script src="{{asset('ashry/back/app-assets/vendors/js/extensions/jquery.raty.js')}}"></script>
 <script src="{{asset('ashry/back/app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
-{{--<script src="{{asset('ashry/back/app-assets/vendors/js/tables/jquery.dataTables.min.js')}}"></script>--}}
-{{--<script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js')}}"></script>--}}
-
-
 <!-- END: Page Vendor JS-->
+
+
 <script src="{{asset('ashry/back/app-assets/js/scripts/modal/components-modal.js')}}"></script>
 
 <!-- BEGIN: Theme JS-->

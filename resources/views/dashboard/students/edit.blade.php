@@ -79,7 +79,9 @@
                         <h4 class="card-title" id="basic-layout-form">
                             {{trans('cpanel/students.Edit Student Info')}}
                         </h4>
-                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <a class="heading-elements-toggle">
+                            <i class="la la-ellipsis-v font-medium-3"></i>
+                        </a>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
                                 <li><a data-action="collapse"><i class="ft-minus"></i></a></li>

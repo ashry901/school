@@ -7,7 +7,6 @@ use App\Models\Grade;
 
 class FeesRepository implements FeesRepositoryInterface
 {
-
     public function index()
     {
         $fees = Fee::all();
@@ -39,7 +38,8 @@ class FeesRepository implements FeesRepositoryInterface
             $fees->description  =$request->description;
             $fees->year  =$request->year;
             $fees->save();
-            toastr()->success(trans('messages.success'));
+
+            toastr()->success(trans('cpanel/messages.success'));
             return redirect()->route('Fees.create');
 
         }
@@ -60,7 +60,7 @@ class FeesRepository implements FeesRepositoryInterface
             $fees->description  =$request->description;
             $fees->year  =$request->year;
             $fees->save();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpanel/messages.Update'));
             return redirect()->route('Fees.index');
         }
 
@@ -73,7 +73,7 @@ class FeesRepository implements FeesRepositoryInterface
     {
         try {
             Fee::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpanel/messages.Delete'));
             return redirect()->back();
         }
 

@@ -1116,11 +1116,13 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="card-content collapse show">
                         <div class="card-body">
                             <div class="card-text">
                                 <p>This is the most basic</p>
                             </div>
+
                             <form class="form">
                                 <div class="form-body">
                                     <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
@@ -1214,6 +1216,7 @@
                                     </button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

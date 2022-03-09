@@ -26,6 +26,11 @@
                                 {{trans('cpanel/students.Students')}}
                             </a>
                         </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{route('Graduated.index')}}">
+                                {{trans('cpanel/students.Graduated')}}
+                            </a>
+                        </li>
                         <li class="breadcrumb-item active">
                             {{trans('cpanel/students.All Students')}}
                         </li>

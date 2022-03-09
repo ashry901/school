@@ -55,7 +55,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
             $students_accounts->save();
 
             DB::commit();
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpavel/messages.success'));
             return redirect()->route('ProcessingFee.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -89,7 +89,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
 
 
             DB::commit();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpavel/messages.Update'));
             return redirect()->route('ProcessingFee.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -101,7 +101,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
     {
         try {
             ProcessingFee::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpavel/messages.Delete'));
             return redirect()->back();
         }
 

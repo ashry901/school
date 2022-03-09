@@ -79,6 +79,22 @@ Route::group([
             Route::post('Delete_attachment', 'StudentController@Delete_attachment')->name('Delete_attachment');
         });
 
+        //==============================Subjects============================
+        Route::group(['namespace' => 'Subjects'], function () {
+            Route::resource('subjects', 'SubjectController');
+        });
+
+        //==============================Quizzes============================
+        Route::group(['namespace' => 'Quizzes'], function () {
+            Route::resource('Quizzes', 'QuizzController');
+        });
+
+        //==============================questions============================
+        Route::group(['namespace' => 'questions'], function () {
+            Route::resource('questions', 'QuestionController');
+        });
+
+        //==============================Setting============================
         Route::resource('settings', 'SettingController');
     });
 

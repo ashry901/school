@@ -10,7 +10,7 @@ class StudentGraduatedRepository implements StudentGraduatedRepositoryInterface
     public function index()
     {
         $students = Student::onlyTrashed()->get();
-        return view('dashboard.students.graduated.index',compact('students'));
+        return view('dashboard.students.graduated.index', compact('students'));
     }
 
     public function create()
@@ -26,7 +26,7 @@ class StudentGraduatedRepository implements StudentGraduatedRepositoryInterface
             ->where('section_id',$request->section_id)->get();
 
         if($students->count() < 1){
-            return redirect()->back()->with('error_Graduated', __('There is no data in the student table'));
+            return redirect()->back()->with('error_Graduated', __('cpanel/students.error-promotions'));
         }
 
         foreach ($students as $student){
@@ -34,21 +34,22 @@ class StudentGraduatedRepository implements StudentGraduatedRepositoryInterface
             student::whereIn('id', $ids)->Delete();
         }
 
-        toastr()->success(trans('messages.success'));
+        toastr()->success(trans('cpavel/messages.success'));
+
         return redirect()->route('Graduated.index');
     }
 
     public function ReturnData($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->restore();
-        toastr()->success(trans('messages.success'));
+        toastr()->success(trans('cpavel/messages.success'));
         return redirect()->back();
     }
 
     public function destroy($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->forceDelete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('cpavel/messages.Delete'));
         return redirect()->back();
     }
 
