@@ -34,7 +34,7 @@ class StudentGraduatedRepository implements StudentGraduatedRepositoryInterface
             student::whereIn('id', $ids)->Delete();
         }
 
-        toastr()->success(trans('cpavel/messages.success'));
+        toastr()->success(trans('cpanel/messages.success'));
 
         return redirect()->route('Graduated.index');
     }
@@ -42,14 +42,14 @@ class StudentGraduatedRepository implements StudentGraduatedRepositoryInterface
     public function ReturnData($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->restore();
-        toastr()->success(trans('cpavel/messages.success'));
+        toastr()->success(trans('cpanel/messages.success'));
         return redirect()->back();
     }
 
     public function destroy($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->forceDelete();
-        toastr()->error(trans('cpavel/messages.Delete'));
+        toastr()->error(trans('cpanel/messages.Delete'));
         return redirect()->back();
     }
 

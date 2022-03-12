@@ -63,7 +63,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
             }
             DB::commit();
-            toastr()->success(trans('cpavel/messages.success'));
+            toastr()->success(trans('cpanel/messages.success'));
             return redirect()->back();
 
         } catch (\Exception $e) {
@@ -98,7 +98,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
              }
                 DB::commit();
-                toastr()->error(trans('cpavel/messages.Delete'));
+                toastr()->error(trans('cpanel/messages.Delete'));
                 return redirect()->back();
 
             }
@@ -116,7 +116,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 Promotion::destroy($request->id);
 
                 DB::commit();
-                toastr()->error(trans('cpavel/messages.Delete'));
+                toastr()->error(trans('cpanel/messages.Delete'));
 
                 return redirect()->back();
 

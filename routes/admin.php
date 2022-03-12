@@ -58,8 +58,8 @@ Route::group([
             Route::resource('Students', 'StudentController');
             Route::resource('Graduated', 'GraduatedController');
             Route::resource('Promotion', 'PromotionController');
-            Route::resource('Fees_Invoices', 'FeesInvoicesController');
             Route::resource('Fees', 'FeesController');
+            Route::resource('Fees_Invoices', 'FeesInvoicesController');
             Route::resource('receipt_students', 'ReceiptStudentsController');
             Route::resource('ProcessingFee', 'ProcessingFeeController');
             Route::resource('Payment_students', 'PaymentController');
@@ -80,17 +80,17 @@ Route::group([
         });
 
         //==============================Subjects============================
-        Route::group(['namespace' => 'Subjects'], function () {
+        Route::group(['prefix' => 'Subjects'], function () {
             Route::resource('subjects', 'SubjectController');
         });
 
         //==============================Quizzes============================
-        Route::group(['namespace' => 'Quizzes'], function () {
+        Route::group(['prefix' => 'Quizzes'], function () {
             Route::resource('Quizzes', 'QuizzController');
         });
 
         //==============================questions============================
-        Route::group(['namespace' => 'questions'], function () {
+        Route::group(['prefix' => 'questions'], function () {
             Route::resource('questions', 'QuestionController');
         });
 

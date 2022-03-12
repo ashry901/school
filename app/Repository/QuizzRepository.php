@@ -37,7 +37,7 @@ class QuizzRepository implements QuizzRepositoryInterface
             $quizzes->teacher_id    = $request->teacher_id;
             $quizzes->save();
 
-            toastr()->success(trans('cpavel/messages.success'));
+            toastr()->success(trans('cpanel/messages.success'));
 
             return redirect()->route('Quizzes.create');
         }
@@ -68,7 +68,7 @@ class QuizzRepository implements QuizzRepositoryInterface
             $quizz->teacher_id   = $request->teacher_id;
             $quizz->save();
 
-            toastr()->success(trans('cpavel/messages.Update'));
+            toastr()->success(trans('cpanel/messages.Update'));
             return redirect()->route('Quizzes.index');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -79,7 +79,7 @@ class QuizzRepository implements QuizzRepositoryInterface
     {
         try {
             Quizze::destroy($request->id);
-            toastr()->error(trans('cpavel/messages.Delete'));
+            toastr()->error(trans('cpanel/messages.Delete'));
             return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

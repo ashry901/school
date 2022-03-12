@@ -209,10 +209,6 @@
 
                 <div class="card-content collapse show ">
                     <div class="card-body">
-
-                        <p class="card-text">
-                            Using the most basic
-                        </p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>

@@ -15,8 +15,9 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
+            $table->string('title');
             $table->decimal('amount',8,2);
+            $table->integer('fee_type');
             $table->foreignId('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->string('description')->nullable();

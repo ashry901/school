@@ -11,8 +11,8 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{route('Students.index')}}">
-                        {{trans('cpanel/students.Students')}}
+                    <a href="{{route('Students.create')}}">
+                        {{trans('cpanel/sidebar.Add Student')}}
                     </a>
                 </li>
 

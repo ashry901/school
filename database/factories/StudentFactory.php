@@ -28,12 +28,12 @@ class StudentFactory extends Factory
             'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'gender_id'         => rand(1, 2),
             'nationalitie_id'   => rand(1, 246),
-            'blood_id'          => rand(1, 8),
+            'blood_id'          => rand(1, 12),
             'date_birth'        => $this->faker->date(),
             'grade_id'          => rand(1, 4),
-            'classroom_id'      => rand(43, 54),
-            'section_id'        => rand(2, 10),
-            'parent_id'         => rand(8, 107),
+            'classroom_id'      => rand(3, 16),
+            'section_id'        => rand(2, 26),
+            'parent_id'         => rand(1, 200),
             'academic_year'     => $this->faker->year(),
         ];
 

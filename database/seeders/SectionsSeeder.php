@@ -18,6 +18,7 @@ class SectionsSeeder extends Seeder
             ['en' => 'a', 'ar' => 'ا'],
             ['en' => 'b', 'ar' => 'ب'],
             ['en' => 'c', 'ar' => 'ج'],
+            ['en' => 'd', 'ar' => 'د'],
         ];
 
         foreach ($sections as $section) {

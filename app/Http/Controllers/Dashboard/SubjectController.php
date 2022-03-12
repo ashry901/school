@@ -39,7 +39,6 @@ class SubjectController extends Controller
         //
     }
 
-
     public function edit($id)
     {
         return $this->Subject->edit($id);

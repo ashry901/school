@@ -64,7 +64,7 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
             $fund_accounts->save();
 
             DB::commit();
-            toastr()->success(trans('cpavel/messages.success'));
+            toastr()->success(trans('cpanel/messages.success'));
             return redirect()->route('receipt_students.index');
 
         }
@@ -111,7 +111,7 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
 
 
             DB::commit();
-            toastr()->success(trans('cpavel/messages.Update'));
+            toastr()->success(trans('cpanel/messages.Update'));
             return redirect()->route('receipt_students.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -123,7 +123,7 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
     {
         try {
             ReceiptStudent::destroy($request->id);
-            toastr()->error(trans('cpavel/messages.Delete'));
+            toastr()->error(trans('cpanel/messages.Delete'));
             return redirect()->back();
         }
 

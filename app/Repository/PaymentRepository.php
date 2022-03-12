@@ -67,7 +67,7 @@ class PaymentRepository implements PaymentRepositoryInterface
             $students_accounts->save();
 
             DB::commit();
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('cpanel/messages.success'));
             return redirect()->route('Payment_students.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -111,7 +111,7 @@ class PaymentRepository implements PaymentRepositoryInterface
             $students_accounts->description = $request->description;
             $students_accounts->save();
             DB::commit();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('cpanel/messages.Update'));
             return redirect()->route('Payment_students.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -123,7 +123,7 @@ class PaymentRepository implements PaymentRepositoryInterface
     {
         try {
             PaymentStudent::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('cpanel/messages.Delete'));
             return redirect()->back();
         }
 

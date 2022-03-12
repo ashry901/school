@@ -12,7 +12,7 @@ class BloodTableSeeder extends Seeder
     {
         DB::table('bloodtypes')->delete();
 
-        $bgs = ['O-', 'O+', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-'];
+        $bgs = ['O', 'O-', 'O+', 'A', 'A+', 'A-', 'B', 'B+', 'B-', 'AB', 'AB+', 'AB-'];
 
         foreach($bgs as  $bg){
             Bloodtype::create(['name' => $bg]);
