@@ -70,47 +70,90 @@
 
 </div>
 
-<div class="row">
-    <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
+<div class="content-body">
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <form method="post"  action="{{ route('receipt_students.store') }}" autocomplete="off">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>المبلغ : <span class="text-danger">*</span></label>
-                                <input  class="form-control" name="debit" type="number" >
-                                <input  type="hidden" name="student_id"  value="{{$student->id}}" class="form-control">
-                            </div>
+    <section id="basic-form-layouts">
+        <div class="row match-height">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title" id="basic-layout-form">
+                            {{trans('cpanel/students.Student Invoice Info')}}
+                        </h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>البيان : <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <div class="card-text">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
+
+                            <form class="form"
+                                  method="post"
+                                  action="{{ route('receipt_students.store') }}"
+                                  autocomplete="off">
+                                @csrf
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="ft-user"></i>
+                                        {{$student->name}}
+                                    </h4>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput1">
+                                                    {{trans('cpanel/students.Amount')}}
+                                                </label>
+                                                <input class="form-control" name="debit" type="number" >
+                                                <input type="hidden" name="student_id" value="{{$student->id}}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput2">
+                                                    {{trans('cpanel/students.Statement')}}
+                                                </label>
+                                                <input type="text" class="form-control" name="description">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="la la-check-square-o"></i>
+                                        {{trans('cpanel/students.Submit')}}
+                                    </button>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
-                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('Students_trans.submit')}}</button>
-                </form>
-
+                </div>
             </div>
+
         </div>
-    </div>
+
+    </section>
+
 </div>
 
 @endsection

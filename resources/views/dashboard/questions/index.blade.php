@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'sections')
+@section('title', 'questions')
 
 @section('style')
     @toastr_css

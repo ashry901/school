@@ -29,7 +29,7 @@ return [
     'Receipt'               => 'ايصال القبض',
     'Fee Exclusion'         => 'استبعاد رسوم',
     'Exchange Receipts'     => 'ايصالات الصرف',
-    'Attendance'            => 'الحضور',
+    'Attendance'            => 'الحضور و الغياب',
     'Attendance Students'   => 'حضور الطلاب',
     'Subjects'              => 'المواد الدراسية',
     'List Subjects'         => 'قائمة المواد الدراسية',

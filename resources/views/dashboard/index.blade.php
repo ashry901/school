@@ -449,7 +449,7 @@
                                                 <tr>
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$section->invoice_date}}</td>
-                                                    <td>{{$section->My_classs->Name_Class}}</td>
+                                                    <td>{{-- {{$section->My_classs->name_class}} --}}</td>
                                                     <td class="text-success">{{$section->created_at}}</td>
                                                 </tr>
                                             @empty

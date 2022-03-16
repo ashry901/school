@@ -1,7 +1,8 @@
 @extends('layouts.admin')
-@section('title', 'sections')
+@section('title', 'subjects')
 
 @section('style')
+    <link rel="stylesheet" type="text/css" href="{{asset('ashry/back/app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
     @toastr_css
 @endsection
 
@@ -9,55 +10,73 @@
 
 <div class="content-header row">
     <div class="content-header-left col-md-6 col-12 mb-2">
-        <h3 class="content-header-title">Circle Style</h3>
+        <h3 class="content-header-title">
+            {{trans('cpanel/teacher.Subject')}}
+        </h3>
         <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">Home</a>
+                        <a href="{{route('admin.dashboard')}}">
+                            {{trans('cpanel/sidebar.Dashboard')}}
+                        </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">Page</a>
+                        <a href="{{route('subjects.index')}}">
+                            {{trans('cpanel/teacher.Subjects')}}
+                        </a>
                     </li>
                     <li class="breadcrumb-item active">
-                        Form Wizard Circle Steps
+                        {{trans('cpanel/teacher.All Subjects')}}
                     </li>
                 </ol>
             </div>
         </div>
     </div>
-
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Settings</button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"><a class="dropdown-item" href="card-bootstrap.html">Cards</a><a class="dropdown-item" href="component-buttons-extended.html">Buttons</a></div>
-        </div>
-    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
-                <div class="col-xl-12 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <a href="{{route('subjects.create')}}" class="btn btn-success btn-sm" role="button"
-                               aria-pressed="true">اضافة مادة جديدة</a><br><br>
+<div class="content-body">
+
+    <section id="configuration">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                            {{trans('cpanel/teacher.All Subjects Teachers')}}
+                        </h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-content collapse show">
+                        <div class="card-body card-dashboard">
+                            <p class="card-text">
+                                <a href="{{route('subjects.create')}}" class="btn btn-success btn-sm" role="button"
+                                   aria-pressed="true">
+                                    {{trans('cpanel/teacher.Add New Subject')}}
+                                </a>
+                            </p>
                             <div class="table-responsive">
-                                <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
-                                       data-page-length="50"
-                                       style="text-align: center">
+                                <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>اسم المادة</th>
-                                        <th>المرحلة الدراسية</th>
-                                        <th>الصف الدراسي</th>
-                                        <th>اسم المعلم</th>
-                                        <th>العمليات</th>
+                                        <th>{{trans('cpanel/teacher.Subject Name')}}</th>
+                                        <th>{{trans('cpanel/teacher.Grade')}}</th>
+                                        <th>{{trans('cpanel/teacher.Classroom')}}</th>
+                                        <th>{{trans('cpanel/teacher.Teachers Name')}}</th>
+                                        <th>{{trans('cpanel/teacher.Action')}}</th>
                                     </tr>
                                     </thead>
+
                                     <tbody>
                                     @foreach($subjects as $subject)
                                         <tr>
@@ -67,8 +86,18 @@
                                             <td>{{$subject->classroom->name_class}}</td>
                                             <td>{{$subject->teacher->name}}</td>
                                             <td>
-                                                <a href="{{route('subjects.edit',$subject->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_subject{{ $subject->id }}" title="حذف"><i class="fa fa-trash"></i></button>
+                                                <a href="{{route('subjects.edit',$subject->id)}}"
+                                                   class="btn btn-info btn-sm"
+                                                   role="button" aria-pressed="true">
+                                                    <i class="ft-edit-2"></i>
+                                                </a>
+                                                &nbsp; &nbsp; &nbsp; &nbsp;
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                        data-toggle="modal"
+                                                        data-target="#delete_subject{{ $subject->id }}"
+                                                        title="{{trans('cpanel/teacher.Delete')}}">
+                                                    <i class="ft-trash-2"></i>
+                                                </button>
                                             </td>
                                         </tr>
 
@@ -79,28 +108,45 @@
                                                     {{csrf_field()}}
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">حذف مادة دراسية</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
+                                                                {{trans('cpanel/teacher.Delete Subject')}}
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$subject->name}}</p>
-                                                            <input type="hidden" name="id"  value="{{$subject->id}}">
+                                                            <p> {{ trans('cpanel/myclasses.Warning_Grade') }} {{$subject->name}}</p>
+                                                            <input type="hidden" name="id" value="{{$subject->id}}">
                                                         </div>
+
                                                         <div class="modal-footer">
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
-                                                                <button type="submit"
-                                                                        class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
-                                                            </div>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">
+                                                                {{ trans('cpanel/myclasses.Close') }}
+                                                            </button>
+                                                            <button type="submit" class="btn btn-danger">
+                                                                {{ trans('cpanel/myclasses.submit') }}
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                     @endforeach
+                                    </tbody>
+
+                                    <tfoot>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{trans('cpanel/teacher.Subject Name')}}</th>
+                                        <th>{{trans('cpanel/teacher.Grade')}}</th>
+                                        <th>{{trans('cpanel/teacher.Classroom')}}</th>
+                                        <th>{{trans('cpanel/teacher.Teachers Name')}}</th>
+                                        <th>{{trans('cpanel/teacher.Action')}}</th>
+                                    </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -108,13 +154,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
 @endsection
 
 
 @section('script')
+    <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
+    <script src="{{asset('ashry/back/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"></script>
     @toastr_js
     @toastr_render
 @endsection

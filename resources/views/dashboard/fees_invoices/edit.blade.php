@@ -70,69 +70,113 @@
 
 </div>
 
-<div class="row">
-    <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
-            <div class="card-body">
+<div class="content-body">
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+    <section id="basic-form-layouts">
 
-                <form action="{{route('Fees_Invoices.update', 'test')}}" method="post" autocomplete="off">
-                    @method('PUT')
-                    @csrf
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="inputEmail4">اسم الطالب</label>
-                            <input type="text" value="{{$fee_invoices->student->name}}" readonly name="title_ar" class="form-control">
-                            <input type="hidden" value="{{$fee_invoices->id}}" name="id" class="form-control">
+        <div class="row match-height">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title" id="basic-layout-form">Project Info</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
                         </div>
+                    </div>
 
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <div class="card-text">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            </div>
 
-                        <div class="form-group col">
-                            <label for="inputEmail4">المبلغ</label>
-                            <input type="number" value="{{$fee_invoices->amount}}" name="amount" class="form-control">
+                            <form class="form"
+                                  action="{{route('Fees_Invoices.update', 'test')}}"
+                                  method="post"
+                                  autocomplete="off">
+                                @method('PUT')
+                                @csrf
+                                <div class="form-body">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput1">
+                                                    {{trans('cpanel/fees.Name')}}
+                                                </label>
+                                                <input type="text" value="{{$fee_invoices->student->name}}" readonly name="title_ar"
+                                                       class="form-control">
+                                                <input type="hidden" value="{{$fee_invoices->id}}" name="id" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput2">
+                                                    {{trans('cpanel/fees.Amount')}}
+                                                </label>
+                                                <input type="number" value="{{$fee_invoices->amount}}" name="amount" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput5">
+                                                    {{trans('cpanel/fees.Fee Type')}}
+                                                </label>
+                                                <select name="fee_id" class="form-control">
+                                                    @foreach($fees as $fee)
+                                                    <option value="{{$fee->id}}" {{$fee->id == $fee_invoices->fee_id ? 'selected':"" }}>
+                                                        {{$fee->title}}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="projectinput4">
+                                                    {{trans('cpanel/fees.Notes')}}
+                                                </label>
+                                                <input type="text" class="form-control" name="description"
+                                                       value="{{$fee_invoices->description}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="la la-check-square-o"></i>
+                                        {{trans('cpanel/students.Submit')}}
+                                    </button>
+                                </div>
+                            </form>
+
                         </div>
-
                     </div>
-
-
-                    <div class="form-row">
-
-                        <div class="form-group col">
-                            <label for="inputZip">نوع الرسوم</label>
-                            <select class="custom-select mr-sm-2" name="fee_id">
-                                @foreach($fees as $fee)
-                                    <option value="{{$fee->id}}" {{$fee->id == $fee_invoices->fee_id ? 'selected':"" }}>
-                                        {{$fee->title}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputAddress">ملاحظات</label>
-                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="4">{{$fee_invoices->description}}</textarea>
-                    </div>
-                    <br>
-
-                    <button type="submit" class="btn btn-primary">تاكيد</button>
-
-                </form>
-
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
+
 
 @endsection
 

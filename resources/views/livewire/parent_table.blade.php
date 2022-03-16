@@ -30,7 +30,6 @@
                                 </thead>
 
                                 <tbody>
-
                                 @foreach ($guardians as $guardian)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
@@ -46,7 +45,7 @@
                                                 class="btn btn-primary btn-sm">
                                             {{ trans('cpanel/grades.Edit') }}
                                         </button>
-
+                                        <br><br>
                                         <button type="button"
                                                 class="btn btn-danger btn-sm"
                                                 wire:click="delete({{ $guardian->id }})"

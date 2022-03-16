@@ -32,7 +32,7 @@ Route::group([
         });
 
         //==============================Classrooms============================
-        Route::group(['prefix' => 'classs'], function () {
+        Route::group(['prefix' => 'admin'], function () {
             Route::resource('classrooms', 'ClassroomController');
 
             Route::post('delete_all', 'ClassroomController@delete_all')->name('delete_all');
@@ -40,7 +40,7 @@ Route::group([
         });
 
         ############################# Sections ###################################
-        Route::group([], function () {
+        Route::group(['prefix' => 'admin'], function () {
             Route::resource('sections', 'SectionController');
             Route::get('/classes/{id}', 'SectionController@getclasses');
         });
@@ -49,12 +49,15 @@ Route::group([
         Route::view('add_parent','livewire.show_form')->name('add_parent');
 
         //==============================teachers============================
-        Route::group([], function () {
+        Route::group(['prefix' => 'admin'], function () {
             Route::resource('teachers', 'TeacherController');
         });
 
         //==============================Students============================
-        Route::group(['namespace' => 'Students'], function () {
+        Route::group([
+            'namespace' => 'Students',
+            'prefix' => 'admin'
+        ], function () {
             Route::resource('Students', 'StudentController');
             Route::resource('Graduated', 'GraduatedController');
             Route::resource('Promotion', 'PromotionController');
@@ -80,17 +83,17 @@ Route::group([
         });
 
         //==============================Subjects============================
-        Route::group(['prefix' => 'Subjects'], function () {
+        Route::group(['prefix' => 'admin'], function () {
             Route::resource('subjects', 'SubjectController');
         });
 
         //==============================Quizzes============================
-        Route::group(['prefix' => 'Quizzes'], function () {
+        Route::group(['prefix' => 'admin'], function () {
             Route::resource('Quizzes', 'QuizzController');
         });
 
         //==============================questions============================
-        Route::group(['prefix' => 'questions'], function () {
+        Route::group(['prefix' => 'admin'], function () {
             Route::resource('questions', 'QuestionController');
         });
 

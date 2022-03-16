@@ -12,9 +12,6 @@
 
 @section('content')
 
-{{--    <script src="jquery.steps.min.js"></script>--}}
-{{--    <link rel="stylesheet" type="text/css" href="wizard.css">--}}
-
 <div class="content-header row">
     <div class="content-header-left col-md-6 col-12 mb-2">
         <h3 class="content-header-title">Circle Style</h3>
@@ -41,7 +38,6 @@
 </div>
 
 <div class="content-body">
-
     <section id="configuration">
         <div class="row">
             <div class="col-12">
@@ -58,6 +54,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="card-content collapse show">
                         <div class="card-body card-dashboard">
                             <p class="card-text">DataTables has most features </p>
@@ -105,7 +102,6 @@
             </div>
         </div>
     </section>
-
 </div>
 
 <div class="content-body">
@@ -1097,11 +1093,8 @@
 </div>
 
 <div class="content-body">
-
     <section id="basic-form-layouts">
-
         <div class="row match-height">
-
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
@@ -1221,7 +1214,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
@@ -1310,11 +1302,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </section>
-
 </div>
 
 @endsection

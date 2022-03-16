@@ -78,8 +78,27 @@
                                                 </a>
 
                                                 <a href="{{route('Fees_Invoices.show', $student->id)}}"
-                                                   class="dropdown-item"><i class="ft-plus-circle primary"></i>
+                                                   class="dropdown-item">
+                                                    <i class="ft-plus-circle primary"></i>
                                                     {{trans('cpanel/students.Add Invoices')}}
+                                                </a>
+
+                                                <a href="{{route('receipt_students.show', $student->id)}}"
+                                                   class="dropdown-item">
+                                                    <i class="ft-plus-circle primary"></i>
+                                                    {{trans('cpanel/students.Receipt Document')}}
+                                                </a>
+
+                                                <a href="{{route('Payment_students.show', $student->id)}}"
+                                                   class="dropdown-item">
+                                                    <i class="ft-plus-circle primary"></i>
+                                                    {{trans('cpanel/students.Receipt Cashing')}}
+                                                </a>
+
+                                                <a href="{{route('ProcessingFee.show', $student->id)}}"
+                                                   class="dropdown-item">
+                                                    <i class="ft-edit-2"></i>
+                                                    {{trans('cpanel/students.Exclude Fee')}}
                                                 </a>
 
                                                 <a href="{{route('Students.edit', $student->id)}}"
@@ -87,7 +106,6 @@
                                                     <i class="ft-edit-2"></i>
                                                     {{trans('cpanel/students.Edit')}}
                                                 </a>
-
 
                                                 <a href="#Delete_Student{{ $student->id }}"
                                                    class="dropdown-item"

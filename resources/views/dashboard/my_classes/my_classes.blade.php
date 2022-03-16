@@ -16,30 +16,30 @@
 
 <div class="content-header row">
     <div class="content-header-left col-md-6 col-12 mb-2">
-        <h3 class="content-header-title">Classrooms</h3>
+        <h3 class="content-header-title">
+            Classrooms
+        </h3>
         <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">Dashboard</a>
+                        <a href="{{route('admin.dashboard')}}">
+                            {{trans('cpanel/myclasses.Dashboard')}}
+                        </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">All Classrooms</a>
+                        <a href="{{route('classrooms.index')}}">
+                            {{trans('cpanel/myclasses.All Classrooms')}}
+                        </a>
                     </li>
                     <li class="breadcrumb-item active">
-                        Classrooms
+                        {{trans('cpanel/myclasses.Classrooms')}}
                     </li>
                 </ol>
             </div>
         </div>
     </div>
 
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Settings</button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"><a class="dropdown-item" href="card-bootstrap.html">Cards</a><a class="dropdown-item" href="component-buttons-extended.html">Buttons</a></div>
-        </div>
-    </div>
 </div>
 
 <div class="content-body">
@@ -261,7 +261,7 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <label for="Name" class="mr-sm-2">
-                                                            {{ trans('cpanel/myclasses.Name_class') }}:
+                                                            {{ trans('cpanel/myclasses.Name Class Ar') }}:
                                                         </label>
                                                         <input id="name" type="text" name="name"
                                                                class="form-control"
@@ -272,7 +272,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="name_en" class="mr-sm-2">
-                                                            {{ trans('cpanel/myclasses.name_class_en') }} :
+                                                            {{ trans('cpanel/myclasses.Name Class En') }} :
                                                         </label>
 
                                                         <input type="text" class="form-control"
@@ -283,7 +283,7 @@
 
                                                 <div class="form-group">
                                                     <label for="exampleFormControlTextarea1">
-                                                        {{ trans('cpanel/myclasses.Name_Grade') }}:
+                                                        {{ trans('cpanel/myclasses.Name Grade') }}:
                                                     </label>
 
                                                     <select class="form-control form-control-lg"
@@ -303,11 +303,11 @@
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                        {{ trans('Grades_trans.Close') }}
+                                                        {{ trans('cpanel/myclasses.Close') }}
                                                     </button>
 
                                                     <button type="submit" class="btn btn-success">
-                                                        {{ trans('Grades_trans.submit') }}
+                                                        {{ trans('cpanel/myclasses.Submit') }}
                                                     </button>
                                                 </div>
                                             </form>
@@ -395,14 +395,14 @@
 
                                             <div class="col">
                                                 <label for="Name" class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Name_class') }}:
+                                                    {{ trans('cpanel/myclasses.Name Class Ar') }}:
                                                 </label>
                                                 <input class="form-control" type="text" name="name" />
                                             </div>
 
                                             <div class="col">
                                                 <label for="Name" class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Name_class_en') }}:
+                                                    {{ trans('cpanel/myclasses.Name Class En') }}:
                                                 </label>
                                                 <input class="form-control" type="text" name="name_class_en" />
                                             </div>
@@ -410,7 +410,7 @@
                                             <div class="col">
                                                 <label for="name_en"
                                                        class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Name_Grade') }}:
+                                                    {{ trans('cpanel/myclasses.Name Grade') }}:
                                                 </label>
 
                                                 <div class="box">

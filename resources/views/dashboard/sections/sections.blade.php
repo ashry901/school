@@ -488,8 +488,6 @@
                                                                 </button>
                                                             </div>
                                                         </form>
-
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -498,27 +496,19 @@
                                 </div>
 
                                 @endforeach
-
                                 </tbody>
 
                             </table>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-
             @endforeach
         </div>
     </div>
-
 </div>
 
 @endsection
-
-
 
 @section('script')
 

@@ -7,10 +7,10 @@ use App\Models\Student;
 use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+//use DB;
 
 class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
 {
-
     public function index()
     {
         $processingFees = ProcessingFee::all();
@@ -23,44 +23,43 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
         return view('dashboard.processing_fee.add', compact('student'));
     }
 
-    public function edit($id)
-    {
-        $processingFee = ProcessingFee::findorfail($id);
-        return view('dashboard.processing_fee.edit',compact('processingFee'));
-    }
-
     public function store($request)
     {
         DB::beginTransaction();
-
         try {
             // حفظ البيانات في جدول معالجة الرسوم
-            $ProcessingFee = new ProcessingFee();
-            $ProcessingFee->date = date('Y-m-d');
-            $ProcessingFee->student_id = $request->student_id;
-            $ProcessingFee->amount = $request->Debit;
-            $ProcessingFee->description = $request->description;
-            $ProcessingFee->save();
-
+            $processingFee = new ProcessingFee();
+            $processingFee->date = date('Y-m-d');
+            $processingFee->student_id = $request->student_id;
+            $processingFee->amount = $request->debit;
+            $processingFee->description = $request->description;
+            $processingFee->save();
 
             // حفظ البيانات في جدول حساب الطلاب
             $students_accounts = new StudentAccount();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';
             $students_accounts->student_id = $request->student_id;
-            $students_accounts->processing_id = $ProcessingFee->id;
+            $students_accounts->processing_id = $processingFee->id;
             $students_accounts->debit = 0.00;
-            $students_accounts->credit = $request->Debit;
+            $students_accounts->credit = $request->debit;
             $students_accounts->description = $request->description;
             $students_accounts->save();
 
             DB::commit();
             toastr()->success(trans('cpanel/messages.success'));
+
             return redirect()->route('ProcessingFee.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function edit($id)
+    {
+        $processingFee = ProcessingFee::findorfail($id);
+        return view('dashboard.processing_fee.edit',compact('processingFee'));
     }
 
     public function update($request)
@@ -69,21 +68,21 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
 
         try {
             // تعديل البيانات في جدول معالجة الرسوم
-            $ProcessingFee = ProcessingFee::findorfail($request->id);;
-            $ProcessingFee->date = date('Y-m-d');
-            $ProcessingFee->student_id = $request->student_id;
-            $ProcessingFee->amount = $request->Debit;
-            $ProcessingFee->description = $request->description;
-            $ProcessingFee->save();
+            $processingFee = ProcessingFee::findorfail($request->id);;
+            $processingFee->date = date('Y-m-d');
+            $processingFee->student_id = $request->student_id;
+            $processingFee->amount = $request->debit;
+            $processingFee->description = $request->description;
+            $processingFee->save();
 
             // تعديل البيانات في جدول حساب الطلاب
             $students_accounts = StudentAccount::where('processing_id',$request->id)->first();;
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';
             $students_accounts->student_id = $request->student_id;
-            $students_accounts->processing_id = $ProcessingFee->id;
+            $students_accounts->processing_id = $processingFee->id;
             $students_accounts->debit = 0.00;
-            $students_accounts->credit = $request->Debit;
+            $students_accounts->credit = $request->debit;
             $students_accounts->description = $request->description;
             $students_accounts->save();
 

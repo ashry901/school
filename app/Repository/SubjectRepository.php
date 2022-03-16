@@ -25,10 +25,10 @@ class SubjectRepository implements SubjectRepositoryInterface
     {
         try {
             $subjects = new Subject();
-            $subjects->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
-            $subjects->grade_id = $request->grade_id;
-            $subjects->classroom_id = $request->classroom_id;
-            $subjects->teacher_id = $request->teacher_id;
+            $subjects->name         = ['en' => $request->name_en, 'ar' => $request->name_ar];
+            $subjects->grade_id     = $request->grade_id;
+            $subjects->classroom_id = $request->class_id;
+            $subjects->teacher_id   = $request->teacher_id;
             $subjects->save();
 
             toastr()->success(trans('cpanel/messages.success'));
@@ -41,8 +41,8 @@ class SubjectRepository implements SubjectRepositoryInterface
 
     public function edit($id)
     {
-        $subject = Subject::findorfail($id);
-        $grades = Grade::get();
+        $subject  = Subject::findorfail($id);
+        $grades   = Grade::get();
         $teachers = Teacher::get();
         return view('dashboard.subjects.edit', compact('subject','grades', 'teachers'));
     }
@@ -54,12 +54,12 @@ class SubjectRepository implements SubjectRepositoryInterface
 
             $subjects->name         = ['en' => $request->name_en, 'ar' => $request->name_ar];
             $subjects->grade_id     = $request->grade_id;
-            $subjects->classroom_id = $request->classroom_id;
+            $subjects->classroom_id = $request->class_id;
             $subjects->teacher_id   = $request->teacher_id;
             $subjects->save();
 
             toastr()->success(trans('cpanel/messages.Update'));
-            return redirect()->route('subjects.create');
+            return redirect()->route('subjects.index');
         }
         catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);

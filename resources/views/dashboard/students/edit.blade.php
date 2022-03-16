@@ -175,7 +175,7 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-
+                                                <label>{{trans('cpanel/students.Gender')}}  :</label>
                                                 <select class="form-control" name="gender_id">
                                                     <option selected disabled>
                                                         {{trans('cpanel/students.Choose')}}...

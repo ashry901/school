@@ -4,32 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReceiptStudentsTable extends Migration
+class CreateProcessingFeesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('receipt_students', function (Blueprint $table) {
+        Schema::create('processing_fees', function (Blueprint $table) {
             $table->id();
             $table->date('date');
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->decimal('debit',8,2)->nullable();
+            $table->decimal('amount',8,2)->nullable();
             $table->string('description');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('receipt_students');
+        Schema::dropIfExists('processing_fees');
     }
 }

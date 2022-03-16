@@ -11,15 +11,15 @@ class AttendanceRepository implements AttendanceRepositoryInterface
 {
     public function index()
     {
-        $grades = Grade::with(['Sections'])->get();
+        $grades      = Grade::with(['sections'])->get();
         $list_grades = Grade::all();
-        $teachers = Teacher::all();
-        return view('dashboard.attendance.Sections', compact('grades','list_grades','teachers'));
+        $teachers    = Teacher::all();
+        return view('dashboard.attendance.sections', compact('grades','list_grades','teachers'));
     }
 
     public function show($id)
     {
-        $students = Student::with('attendance')->where('section_id',$id)->get();
+        $students = Student::with('attendance')->where('section_id', $id)->get();
         return view('dashboard.attendance.index', compact('students'));
     }
 
@@ -36,20 +36,19 @@ class AttendanceRepository implements AttendanceRepositoryInterface
                 }
 
                 Attendance::create([
-                    'student_id'=> $studentid,
-                    'grade_id'=> $request->grade_id,
-                    'classroom_id'=> $request->classroom_id,
-                    'section_id'=> $request->section_id,
-                    'teacher_id'=> 1,
-                    'attendence_date'=> date('Y-m-d'),
-                    'attendence_status'=> $attendence_status
+                    'student_id'        => $studentid,
+                    'grade_id'          => $request->grade_id,
+                    'classroom_id'      => $request->classroom_id,
+                    'section_id'        => $request->section_id,
+                    'teacher_id'        => 1,
+                    'attendence_date'   => date('Y-m-d'),
+                    'attendence_status' => $attendence_status
                 ]);
 
             }
-
             toastr()->success(trans('cpavel/messages.success'));
-            return redirect()->back();
 
+            return redirect()->back();
         }
 
         catch (\Exception $e){

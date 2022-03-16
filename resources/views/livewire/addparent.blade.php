@@ -115,14 +115,9 @@
                                             @endif
                                         </div>
                                     </form>
-
-
                                 </div>
-
                             @endif
-
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -14,13 +14,13 @@ class ClassroomSeeder extends Seeder
     {
         DB::table('classrooms')->delete();
         $classrooms = [
-            ['en'=> 'First grade', 'ar'=> 'الصف الاول'],
-            ['en'=> 'Second grade', 'ar'=> 'الصف الثاني'],
-            ['en'=> 'Third grade', 'ar'=> 'الصف الثالث'],
+            ['en'=> 'First Grade', 'ar'=> 'الصف الاول'],
+            ['en'=> 'Second Grade', 'ar'=> 'الصف الثاني'],
+            ['en'=> 'Third Grade', 'ar'=> 'الصف الثالث'],
 
-            ['en'=> 'Fourth grade', 'ar'=> 'الصف الرابع'],
-            ['en'=> 'fifth grade', 'ar'=> 'الصف الخامس'],
-            ['en'=> 'Sixth grade', 'ar'=> 'الصف السادس'],
+            ['en'=> 'Fourth Grade', 'ar'=> 'الصف الرابع'],
+            ['en'=> 'Fifth Grade', 'ar'=> 'الصف الخامس'],
+            ['en'=> 'Sixth Grade', 'ar'=> 'الصف السادس'],
         ];
 
         foreach ($classrooms as $classroom) {

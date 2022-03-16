@@ -77,10 +77,6 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h3 class="card-title" id="repeat-form">
-                        {{trans('cpanel/myclasses.Add Classrooms')}}
-                    </h3>
-                    <br>
                     <h5>
                         {{trans('cpanel/myclasses.You can add more than one semester')}}
                     </h5>
@@ -197,9 +193,6 @@
         </div>
     </section>
 </div>
-
-
-
 
 @endsection
 

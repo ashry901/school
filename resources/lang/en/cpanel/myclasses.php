@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Dashboard'                             => 'Dashboard',
     'title_page'                            => 'Classes',
     'List Classes'                          => 'List Classes',
     'add_class'                             => 'add class',
@@ -32,8 +33,7 @@ return [
     'Delete Classes Row'                    => 'Delete Classes Row',
     'All Classrooms'                        => 'All Classrooms',
     'Successfully Deleted'                  => 'Successfully Deleted',
-    '' => '',
-    '' => '',
+    'Classrooms'                            => 'Classrooms',
     '' => '',
     '' => '',
     '' => '',

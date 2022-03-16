@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Dashboard'                             => 'لوحة التحكم',
     'title_page'                            => 'الصفوف الدراسية',
     'List Classes'                          => 'قائمة الصفوف الدراسية',
     'add_class'                             => 'اضافة صف',
@@ -27,12 +28,12 @@ return [
     'Save Changes'                          => 'حفظ التغييرات',
     'Add Row'                               => 'اضافة صف',
     'Edit Grade'                            => 'تعديل الفصول الدراسية',
-    'Add Classrooms'                        => 'اضافة فصول دراسى',
+    'Add Classrooms'                        => 'اضافة فصول دراسىة',
     'You can add more than one semester'    => 'يمكنك اضافة اكثر من فصل دراسى',
     'Delete Classes Row'                    => 'حزف أكثر من صف',
     'All Classrooms'                        => 'جميع الصفوف الدراسية',
     'Successfully Deleted'                  => 'تم الحزف بنجاح',
-    '' => '',
+    'Classrooms'                            => 'الصفوف الدراسية',
     '' => '',
     '' => '',
     '' => '',

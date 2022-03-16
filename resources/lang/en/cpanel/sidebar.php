@@ -43,6 +43,6 @@ return [
     'Users'                 => 'Users',
     'Information'           => 'Information',
     'Promotions'            => 'Promotions',
-    'Quizzes List'          => 'Questions List',
+    'Quizzes List'          => 'Quizzes List',
     'Questions List'        => 'Questions List',
 ];

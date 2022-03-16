@@ -106,10 +106,12 @@
                         <select class="custom-select my-1 mr-sm-2"
                                 wire:model="nationality_mother_id">
                             <option selected>
-                                {{trans('Parent_trans.Choose')}}...
+                                {{trans('cpanel/parent.Choose')}}...
                             </option>
                             @foreach($nationalities as $national)
-                                <option value="{{$national->id}}">{{$national->name}}</option>
+                                <option value="{{$national->id}}">
+                                    {{$national->name}}
+                                </option>
                             @endforeach
                         </select>
                         @error('nationality_mother_id')
@@ -125,7 +127,7 @@
                         <select class="custom-select my-1 mr-sm-2"
                                 wire:model="blood_type_mother_id">
                             <option selected>
-                                {{trans('Parent_trans.Choose')}}...
+                                {{trans('cpanel/parent.Choose')}}...
                             </option>
                             @foreach($bloodtypes as $bloodtype)
                                 <option value="{{$bloodtype->id}}">{{$bloodtype->name}}</option>

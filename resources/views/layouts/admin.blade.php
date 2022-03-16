@@ -115,7 +115,7 @@
 
     {{-- @notify_js
     @notify_render --}}
-
+{{--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> --}}
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('ashry/back/app-assets/vendors/js/vendors.min.js')}}"></script>
 <!-- BEGIN Vendor JS-->

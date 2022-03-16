@@ -14,6 +14,15 @@ class Quizze extends Model
 
     public $translatable = ['name'];
 
+//    protected $fillable = [
+//        'name',
+//        'subject_id ',
+//        'grade_id',
+//        'classroom_id',
+//        'section_id ',
+//        'teacher_id'
+//    ];
+
     public function teacher()
     {
         return $this->belongsTo('App\Models\Teacher', 'teacher_id');
