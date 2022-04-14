@@ -41,7 +41,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title" id="basic-layout-form">
-                            {{trans('cpanel/teacher.Quizzes')}}Project Info
+                            {{trans('cpanel/teacher.Quizzes')}}
                         </h4>
                         <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                         <div class="heading-elements">
@@ -160,7 +160,7 @@
                                                     {{trans('cpanel/teacher.Classroom')}}
                                                 </label>
 
-                                                <select class="form-control" name="classroom_id">
+                                                <select class="form-control" name="class_id">
 
                                                 </select>
                                             </div>
@@ -203,29 +203,10 @@
 
 @section('script')
 
-    <script>
-        $(document).ready(function () {
-            $('select[name="grade_id"]').on('change', function () {
-                var grade_id = $(this).val();
-                if (grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('classes') }}/" + grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="class_id"]').empty();
-                            $.each(data, function (key, value) {
-                                $('select[name="class_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
+
 
     @toastr_js
     @toastr_render
+
+
 @endsection

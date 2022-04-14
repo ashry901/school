@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\http\Controllers\Dashboard\SliderController;
 
-//note that the prefix is admin for all file route
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
@@ -15,9 +13,12 @@ Route::group([
         //'prefix' => 'admin'
     ], function () {
 
-        Route::get('/admin', 'DashboardController@index')->name('admin.dashboard');
+        Route::group(['prefix' => 'admin'], function () {
+            Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
+            Route::get('logout', 'LoginController@logout')->name('admin.logout');
+        });
 
-        Route::get('logout', 'LoginController@logout')->name('admin.logout');
+
 
         // Route::get('/', [DashboardController::class, 'index'])->name('admin.cpanel');
         // Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
@@ -42,7 +43,7 @@ Route::group([
         ############################# Sections ###################################
         Route::group(['prefix' => 'admin'], function () {
             Route::resource('sections', 'SectionController');
-            Route::get('/classes/{id}', 'SectionController@getclasses');
+            Route::get('classes/{id}', 'SectionController@getclasses')->name('classes');
         });
 
         //==============================parents============================
@@ -54,19 +55,54 @@ Route::group([
         });
 
         //==============================Students============================
-        Route::group([
-            'namespace' => 'Students',
-            'prefix' => 'admin'
-        ], function () {
-            Route::resource('Students', 'StudentController');
-            Route::resource('Graduated', 'GraduatedController');
-            Route::resource('Promotion', 'PromotionController');
-            Route::resource('Fees', 'FeesController');
-            Route::resource('Fees_Invoices', 'FeesInvoicesController');
+        Route::group(['prefix' => 'admin', 'namespace' => 'Students'], function () {
+            //Route::resource('students', 'StudentController');
+            //Route::resource('students', StudentController::class);
+
+            Route::get('/', 'StudentController@index')->name('admin.students');
+            Route::get('create', 'StudentController@create')->name('admin.students.create');
+            Route::get('show/{id}', 'StudentController@show')->name('admin.students.show');
+            Route::post('store', 'StudentController@store')->name('admin.students.store');
+            Route::get('edit/{id}', 'StudentController@edit')->name('admin.students.edit');
+            Route::post('update/{id}', 'StudentController@update')->name('admin.students.update');
+            Route::get('delete/{id}','StudentController@destroy') -> name('admin.students.delete');
+
+            Route::get('get_classrooms/{id}', 'StudentController@getClassrooms')->name('get_classrooms');
+            Route::get('get_sections/{id}', 'StudentController@getSections')->name('get_sections');
+
+            Route::post('upload_attachment', 'StudentController@upload_attachment')->name('upload_attachment');
+            Route::get('download_attachment/{studentsname}/{filename}', 'StudentController@download_attachment')
+                ->name('download_attachment');
+            Route::post('delete_attachment', 'StudentController@delete_attachment')->name('delete_attachment');
+
+//            Route::group(['prefix' => 'promotion'], function () {
+//                Route::get('/', 'PromotionController@index')->name('admin.promotion');
+//                Route::get('create', 'PromotionController@create')->name('admin.promotion.create');
+//                Route::get('show/{id}', 'PromotionController@show')->name('admin.promotion.show');
+//                Route::post('store', 'PromotionController@store')->name('admin.promotion.store');
+//                Route::get('edit/{id}', 'PromotionController@edit')->name('admin.promotion.edit');
+//                Route::post('update/{id}', 'PromotionController@update')->name('admin.promotion.update');
+//                Route::get('delete/{id}','PromotionController@destroy') -> name('admin.promotion.delete');
+//            });
+
+//            Route::group(['prefix' => 'graduated'], function () {
+//                Route::get('/', 'GraduatedController@index')->name('admin.graduated');
+//                Route::get('create', 'GraduatedController@create')->name('admin.graduated.create');
+//                Route::get('show/{id}', 'GraduatedController@show')->name('admin.graduated.show');
+//                Route::post('store', 'GraduatedController@store')->name('admin.graduated.store');
+//                Route::get('edit/{id}', 'GraduatedController@edit')->name('admin.graduated.edit');
+//                Route::post('update/{id}', 'GraduatedController@update')->name('admin.graduated.update');
+//                Route::get('delete/{id}','GraduatedController@destroy') -> name('admin.graduated.delete');
+//            });
+
+            Route::resource('graduated', 'GraduatedController');
+            Route::resource('promotion', 'PromotionController');
+            Route::resource('fees', 'FeesController');
+            Route::resource('fees_invoices', 'FeesInvoicesController');
             Route::resource('receipt_students', 'ReceiptStudentsController');
-            Route::resource('ProcessingFee', 'ProcessingFeeController');
-            Route::resource('Payment_students', 'PaymentController');
-            Route::resource('Attendance', 'AttendanceController');
+            Route::resource('processingFee', 'ProcessingFeeController');
+            Route::resource('payment_students', 'PaymentController');
+            Route::resource('attendance', 'AttendanceController');
 
             Route::resource('online_classes', 'OnlineClasseController');
             Route::get('/indirect', 'OnlineClasseController@indirectCreate')->name('indirect.create');
@@ -75,11 +111,6 @@ Route::group([
             Route::resource('library', 'LibraryController');
             Route::get('download_file/{filename}', 'LibraryController@downloadAttachment')->name('downloadAttachment');
 
-            Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
-            Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
-            Route::post('Upload_attachment', 'StudentController@Upload_attachment')->name('Upload_attachment');
-            Route::get('Download_attachment/{studentsname}/{filename}', 'StudentController@Download_attachment')->name('Download_attachment');
-            Route::post('Delete_attachment', 'StudentController@Delete_attachment')->name('Delete_attachment');
         });
 
         //==============================Subjects============================

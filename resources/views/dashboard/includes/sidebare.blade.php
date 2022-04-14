@@ -73,7 +73,7 @@
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item"
-                           href="{{route('Students.create')}}"><i></i>
+                           href="{{route('admin.students.create')}}"><i></i>
                             {{-- <i class="la la-university"></i> --}}
                             <i class="la la-minus"></i>
                             <span data-i18n="Add Student">
@@ -84,7 +84,7 @@
 
                     <li>
                         <a class="menu-item"
-                           href="{{route('Students.index')}}"><i></i>
+                           href="{{route('admin.students')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="List Students">
                                 {{trans('cpanel/sidebar.List Students')}}
@@ -108,7 +108,7 @@
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item"
-                           href="{{route('Promotion.index')}}"><i></i>
+                           href="{{route('promotion.create')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="Add Promotion">
                                 {{trans('cpanel/sidebar.Add Promotion')}}
@@ -118,7 +118,7 @@
 
                     <li>
                         <a class="menu-item"
-                           href="{{route('Promotion.create')}}"><i></i>
+                           href="{{route('promotion.index')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="List Promotions">
                                 {{trans('cpanel/sidebar.List Promotions')}}
@@ -142,7 +142,7 @@
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item"
-                           href="{{route('Graduated.create')}}"><i></i>
+                           href="{{route('graduated.create')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="Add Graduate">
                                 {{trans('cpanel/sidebar.Add Graduate')}}
@@ -152,7 +152,7 @@
 
                     <li>
                         <a class="menu-item"
-                           href="{{route('Graduated.index')}}"><i></i>
+                           href="{{route('graduated.index')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="List Graduate">
                                 {{trans('cpanel/sidebar.List Graduate')}}
@@ -200,7 +200,8 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{url('add_parent')}}"><i></i>
+                {{--  {{url('add_parent')}}  --}}
+                <a class="menu-item" href="{{route('add_parent')}}"><i></i>
                     <span data-i18n="List Parents">
                         {{trans('cpanel/sidebar.List Parents')}}
                     </span>
@@ -221,7 +222,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('Fees.index')}}"><i></i>
+                <a class="menu-item" href="{{route('fees.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Studying Fees')}}
                     </span>
@@ -229,7 +230,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href="{{route('Fees_Invoices.index')}}"><i></i>
+                <a class="menu-item" href="{{route('fees_invoices.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Invoices')}}
                     </span>
@@ -245,7 +246,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href="{{route('ProcessingFee.index')}}"><i></i>
+                <a class="menu-item" href="{{route('processingFee.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Fee Exclusion')}}
                     </span>
@@ -253,7 +254,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href="{{route('Payment_students.index')}}"><i></i>
+                <a class="menu-item" href="{{route('payment_students.index')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Exchange Receipts')}}
                     </span>
@@ -274,7 +275,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('Attendance.index')}}"><i></i>
+                <a class="menu-item" href="{{route('attendance.index')}}"><i></i>
                     <span data-i18n="Attendance Students">
                         {{trans('cpanel/sidebar.Attendance Students')}}
                     </span>

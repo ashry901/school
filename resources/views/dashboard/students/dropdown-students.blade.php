@@ -11,19 +11,19 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="{{route('Students.create')}}">
+                    <a href="{{route('admin.students.create')}}">
                         {{trans('cpanel/sidebar.Add Student')}}
                     </a>
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="{{route('Promotion.index')}}">
+                    <a href="{{route('promotion.index')}}">
                         {{trans('cpanel/students.Promotions')}}
                     </a>
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="{{route('Graduated.index')}}">
+                    <a href="{{route('graduated.index')}}">
                         {{trans('cpanel/students.Graduated')}}
                     </a>
                 </li>
@@ -47,22 +47,22 @@
         </button>
 
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a class="dropdown-item" href="{{route('Students.create')}}">
+            <a class="dropdown-item" href="{{route('admin.students.create')}}">
                 {{trans('cpanel/sidebar.Add Student')}}
             </a>
-            <a class="dropdown-item" href="{{route('Students.index')}}">
+            <a class="dropdown-item" href="{{route('admin.students')}}">
                 {{trans('cpanel/sidebar.List Students')}}
             </a>
-            <a class="dropdown-item" href="{{route('Promotion.index')}}">
+            <a class="dropdown-item" href="{{route('promotion.create')}}">
                 {{trans('cpanel/sidebar.Add Promotion')}}
             </a>
-            <a class="dropdown-item" href="{{route('Promotion.create')}}">
+            <a class="dropdown-item" href="{{route('promotion.index')}}">
                 {{trans('cpanel/sidebar.List Promotions')}}
             </a>
-            <a class="dropdown-item" href="{{route('Graduated.create')}}">
+            <a class="dropdown-item" href="{{route('graduated.create')}}">
                 {{trans('cpanel/sidebar.Add Graduate')}}
             </a>
-            <a class="dropdown-item" href="{{route('Graduated.index')}}">
+            <a class="dropdown-item" href="{{route('graduated.index')}}">
                 {{trans('cpanel/sidebar.List Graduate')}}
             </a>
         </div>

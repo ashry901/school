@@ -17,16 +17,16 @@ interface StudentRepositoryInterface
     public function Show_Student($id);
 
     //Delete_Student
-    public function Delete_Student($request);
+    public function delete_student($request);
 
     // Get Add Form Student
-    public function Create_Student();
+    public function create();
 
     // Get classrooms
-    public function Get_classrooms($id);
+    public function get_classrooms($id);
 
     //Get Sections
-    public function Get_Sections($id);
+    public function get_sections($id);
 
     //Get Blods
     //public function getBlods($id);

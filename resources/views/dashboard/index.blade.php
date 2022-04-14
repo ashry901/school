@@ -31,7 +31,7 @@
                                 <div class="media-body text-right">
                                     <h3>{{\App\Models\Student::count()}}</h3>
 
-                                    <a href="{{route('Students.index')}}" target="_blank">
+                                    <a href="{{route('admin.students')}}" target="_blank">
                                         <span class="text-danger">
                                             {{trans('cpanel/main.Students')}}
                                         </span>

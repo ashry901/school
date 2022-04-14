@@ -31,9 +31,9 @@ class StudentFactory extends Factory
             'blood_id'          => rand(1, 12),
             'date_birth'        => $this->faker->date(),
             'grade_id'          => rand(1, 4),
-            'classroom_id'      => rand(1, 11),
-            'section_id'        => rand(1, 33),
-            'parent_id'         => rand(1, 200),
+            'classroom_id'      => rand(1, 14),
+            'section_id'        => rand(1, 42),
+            'parent_id'         => rand(1, 100),
             'academic_year'     => $this->faker->date(2022),
         ];
 

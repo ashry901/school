@@ -21,8 +21,6 @@
     @else
         <link rel="stylesheet" type="text/css" href="{{asset('ashry/back/app-assets/vendors/css/vendors.min.css')}}">
     @endif
-
-    <link rel="stylesheet" type="text/css" href="{{asset('ashry/back/app-assets/vendors/css/forms/selects/select2.min.css')}}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -66,13 +64,17 @@
     <link rel="stylesheet" type="text/css" href="{{asset('ashry/back/app-assets/vendors/css/charts/apexcharts.css')}}">
     <!-- END: Page CSS-->
 
+
+
+    @yield('style')
+
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('ashry/back/assets/css/style.css')}}">
     <!-- END: Custom CSS-->
 
 
 {{--    @notify_css--}}
-    @yield('style')
+
 </head>
 <!-- END: Head-->
 
@@ -113,9 +115,11 @@
         @include('dashboard.includes.footer')
     <!-- END: Footer-->
 
-    {{-- @notify_js
-    @notify_render --}}
-{{--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> --}}
+    {{--
+    @notify_js
+    @notify_render
+    --}}
+
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('ashry/back/app-assets/vendors/js/vendors.min.js')}}"></script>
 <!-- BEGIN Vendor JS-->
@@ -123,145 +127,41 @@
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{asset('ashry/back/app-assets/vendors/js/charts/chart.min.js')}}"></script>
 <script src="{{asset('ashry/back/app-assets/vendors/js/charts/apexcharts/apexcharts.min.js')}}"></script>
-<script src="{{asset('ashry/back/app-assets/vendors/js/extensions/jquery.raty.js')}}"></script>
-<script src="{{asset('ashry/back/app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
 <!-- END: Page Vendor JS-->
 
-
-<script src="{{asset('ashry/back/app-assets/js/scripts/modal/components-modal.js')}}"></script>
+    @yield('script')
 
 <!-- BEGIN: Theme JS-->
 <script src="{{asset('ashry/back/app-assets/js/core/app-menu.js')}}"></script>
 <script src="{{asset('ashry/back/app-assets/js/core/app.js')}}"></script>
 <!-- END: Theme JS-->
 
+
+
+
+{{--<script>--}}
+{{--    $(document).ready(function() {--}}
+{{--        $('#datatable').DataTable();--}}
+{{--    } );--}}
+{{--</script>--}}
+
 <script>
-    $(document).ready(function() {
-        $('#datatable').DataTable();
-    } );
-</script>
+    function CheckAll(className, elem) {
+        var elements = document.getElementsByClassName(className);
+        var l = elements.length;
 
-<!-- BEGIN: Page JS-->
-    <script src="{{asset('ashry/back/app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
-<!-- END: Page JS-->
-
-    <script>
-        function CheckAll(className, elem) {
-            var elements = document.getElementsByClassName(className);
-            var l = elements.length;
-
-            if (elem.checked) {
-                for (var i = 0; i < l; i++) {
-                    elements[i].checked = true;
-                }
-            } else {
-                for (var i = 0; i < l; i++) {
-                    elements[i].checked = false;
-                }
+        if (elem.checked) {
+            for (var i = 0; i < l; i++) {
+                elements[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < l; i++) {
+                elements[i].checked = false;
             }
         }
-    </script>
+    }
+</script>
 
-    <script>
-        $(document).ready(function () {
-            $('select[name="grade_id"]').on('change', function () {
-                var grade_id = $(this).val();
-                if (grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('Get_classrooms') }}/" + grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="classroom_id"]').empty();
-                            $('select[name="classroom_id"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
 
-    <script>
-        $(document).ready(function () {
-            $('select[name="classroom_id"]').on('change', function () {
-                var classroom_id = $(this).val();
-                if (classroom_id) {
-                    $.ajax({
-                        url: "{{ URL::to('Get_Sections') }}/" + classroom_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="section_id"]').empty();
-                            $.each(data, function (key, value) {
-                                $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('select[name="grade_id_new"]').on('change', function () {
-                var grade_id = $(this).val();
-                if (grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('Get_classrooms') }}/" + grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="classroom_id_new"]').empty();
-                            $('select[name="classroom_id_new"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('select[name="classroom_id_new"]').on('change', function () {
-                var classroom_id = $(this).val();
-                if (classroom_id) {
-                    $.ajax({
-                        url: "{{ URL::to('Get_Sections') }}/" + classroom_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="section_id_new"]').empty();
-                            $.each(data, function (key, value) {
-                                $('select[name="section_id_new"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                }
-                else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
-
-    @yield('script')
 </body>
-
-
 </html>

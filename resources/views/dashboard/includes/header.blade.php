@@ -4,7 +4,7 @@
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mobile-menu d-md-none mr-auto">
                     <a class="nav-link nav-menu-main menu-toggle hidden-xs"
-                       href="#">
+                        href="#">
                         <i class="ft-menu font-large-1"></i>
                     </a>
                 </li>
@@ -12,14 +12,14 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{route('admin.dashboard')}}">
                         <img class="brand-logo" alt="..."
-                             src="{{asset('ashry/back/app-assets/images/logo/thumbs-up.jpg')}}">
+                                src="{{asset('ashry/back/app-assets/images/logo/thumbs-up.jpg')}}">
                         <h3 class="brand-text">Ashry</h3>
                     </a>
                 </li>
 
                 <li class="nav-item d-md-none">
                     <a class="nav-link open-navbar-container"
-                       data-toggle="collapse" data-target="#navbar-mobile">
+                        data-toggle="collapse" data-target="#navbar-mobile">
                         <i class="la la-ellipsis-v"></i>
                     </a>
                 </li>
@@ -41,8 +41,6 @@
                         </a>
                     </li>
 
-
-
                     <li class="nav-item nav-search"><a class="nav-link nav-link-search" href="#"><i class="ficon ft-search"></i></a>
                         <div class="search-input">
                             <input class="input" type="text" placeholder="Explore Modern..." tabindex="0" data-search="template-list">
@@ -55,8 +53,8 @@
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-language nav-item">
                         <a class="dropdown-toggle nav-link" id="dropdown-flag"
-                               href="#" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">
+                                href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                             @if (App::getLocale() == 'ar')
                                 {{ LaravelLocalization::getCurrentLocaleName() }}
                                 <i class="flag-icon flag-icon-eg"></i>
@@ -71,7 +69,7 @@
 
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                 <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                     {{ $properties['native'] }}
                                 </a>
 
@@ -81,7 +79,7 @@
 
                     <li class="dropdown dropdown-notification nav-item">
                         <a class="nav-link nav-link-label"
-                           href="#" data-toggle="dropdown">
+                            href="#" data-toggle="dropdown">
                             <i class="ficon ft-bell"></i>
                             <span class="badge badge-pill badge-danger badge-up badge-glow">5</span>
                         </a>
@@ -106,7 +104,7 @@
                                             </p>
                                             <small>
                                                 <time class="media-meta text-muted"
-                                                      datetime="2015-06-11T18:29:20+08:00">
+                                                        datetime="2015-06-11T18:29:20+08:00">
                                                     30 minutes ago
                                                 </time>
                                             </small>
@@ -118,7 +116,7 @@
 
                             <li class="dropdown-menu-footer">
                                 <a class="dropdown-item text-muted text-center"
-                                   href="javascript:void(0)">Read all notifications</a>
+                                    href="javascript:void(0)">Read all notifications</a>
                             </li>
                         </ul>
                     </li>
@@ -168,14 +166,14 @@
 
                             <span class="avatar avatar-online">
                                 <img src="{{asset('ashry/back/app-assets/images/logo/thumbspng.png')}}"
-                                     alt="avatar">
+                                        alt="avatar">
                                 <i></i>
                             </span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item"
-                               href="{{route('edit.profile')}}">
+                                href="{{route('edit.profile')}}">
                                 <i class="ft-user"></i>
                                 Edit Profile
                             </a>
@@ -183,7 +181,7 @@
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item"
-                               href="{{route('admin.logout')}}">
+                                href="{{route('admin.logout')}}">
                                 <i class="ft-power"></i>
                                 Logout
                             </a>

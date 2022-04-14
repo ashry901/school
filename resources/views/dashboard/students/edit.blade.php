@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Students.index')}}">
+                        <a href="{{route('admin.students')}}">
                             {{trans('cpanel/students.Students')}}
                         </a>
                     </li>
@@ -44,10 +44,10 @@
             </button>
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{{route('Students.create')}}">
+                <a class="dropdown-item" href="{{route('admin.students.create')}}">
                     {{trans('cpanel/sidebar.Add Student')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Students.index')}}">
+                <a class="dropdown-item" href="{{route('admin.students')}}">
                     {{trans('cpanel/sidebar.List Students')}}
                 </a>
                 <a class="dropdown-item" href="{{route('Promotion.index')}}">
@@ -94,9 +94,9 @@
                     <div class="card-content collapse show">
                         <div class="card-body">
 
-                            <form class="form" action="{{route('Students.update','test')}}"
+                            <form class="form" action="{{route('admin.students.update','test')}}"
                                   method="post" autocomplete="off">
-                                @method('PUT')
+
                                 @csrf
                                 <div class="form-body">
                                     @if ($errors->any())
@@ -222,7 +222,7 @@
                                                     <option selected disabled>
                                                         {{trans('Parent_trans.Choose')}}...
                                                     </option>
-                                                    @foreach($bloods as $bg)
+                                                    @foreach($type_bloods as $bg)
                                                         <option value="{{ $bg->id }}"
                                                             {{$bg->id == $students->blood_id ? 'selected' : ""}}>
                                                             {{ $bg->name }}

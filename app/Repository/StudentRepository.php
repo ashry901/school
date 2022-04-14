@@ -40,7 +40,6 @@ class StudentRepository implements StudentRepositoryInterface
     public function Update_Student($request)
     {
         try {
-
             $Edit_Students = Student::findorfail($request->id);
 
             $Edit_Students->name            = ['ar' => $request->name_ar, 'en' => $request->name_en];
@@ -58,9 +57,9 @@ class StudentRepository implements StudentRepositoryInterface
 
             $Edit_Students->save();
 
-            toastr()->success(trans('cpavel/messages.Update'));
+            toastr()->success(trans('cpanel/messages.Update'));
 
-            return redirect()->route('Students.index');
+            return redirect()->route('students.index');
 
         } catch (\Exception $e) {
 
@@ -68,9 +67,10 @@ class StudentRepository implements StudentRepositoryInterface
         }
     }
 
-    public function Create_Student()
+    public function create()
     {
         $data['my_classes'] = Grade::all();
+        $data['classrooms'] = Classroom::all();
         $data['parents']    = Guardian::all();
         $data['genders']    = Gender::all();
         $data['nationals']  = Nationalitie::all();
@@ -85,17 +85,18 @@ class StudentRepository implements StudentRepositoryInterface
         return view('dashboard.students.show', compact('student'));
     }
 
-    public function Get_classrooms($id)
+    public function get_classrooms($id)
     {
         $list_classes = Classroom::where("grade_id", $id)->pluck("name_class", "id");
         return $list_classes;
     }
 
     //Get Sections
-    public function Get_Sections($id)
+    public function get_sections($id)
     {
         $list_sections = Section::where("class_id", $id)->pluck("name_section", "id");
         return $list_sections;
+
     }
 
     //Get Blods
@@ -142,14 +143,10 @@ class StudentRepository implements StudentRepositoryInterface
                     $images->save();
                 }
             }
-
             DB::commit();
-
             toastr()->success(trans('cpanel/messages.success'));
-            return redirect()->route('Students.create');
-
+            return redirect()->route('students.create');
         }
-
         catch (\Exception $e){
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -157,14 +154,14 @@ class StudentRepository implements StudentRepositoryInterface
 
     }
 
-    public function Delete_Student($request)
+    public function delete_student($request)
     {
         Student::destroy($request->id);
         toastr()->error(trans('cpanel/messages.Delete'));
-        return redirect()->route('Students.index');
+        return redirect()->route('students.index');
     }
 
-    public function Upload_attachment($request)
+    public function upload_attachment($request)
     {
         foreach($request->file('photos') as $file)
         {
@@ -179,15 +176,15 @@ class StudentRepository implements StudentRepositoryInterface
             $images->save();
         }
         toastr()->success(trans('cpanel/messages.success'));
-        return redirect()->route('Students.show',$request->student_id);
+        return redirect()->route('students.show',$request->student_id);
     }
 
-    public function Download_attachment($studentsname, $filename)
+    public function download_attachment($studentsname, $filename)
     {
         return response()->download(public_path('attachments/students/'.$studentsname.'/'.$filename));
     }
 
-    public function Delete_attachment($request)
+    public function delete_attachment($request)
     {
         // Delete img in server disk
         Storage::disk('upload_attachments')->delete('attachments/students/'.$request->student_name.'/'.$request->filename);
@@ -195,7 +192,7 @@ class StudentRepository implements StudentRepositoryInterface
         // Delete in data
         image::where('id',$request->id)->where('filename',$request->filename)->delete();
         toastr()->error(trans('cpanel/messages.Delete'));
-        return redirect()->route('Students.show', $request->student_id);
+        return redirect()->route('students.show', $request->student_id);
     }
 
 

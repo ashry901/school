@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateParentAttachmentsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('parent_attachments', function (Blueprint $table) {
@@ -21,11 +16,6 @@ class CreateParentAttachmentsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('parent_attachments');

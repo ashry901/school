@@ -16,7 +16,7 @@ class ClassroomController extends Controller
       {
           $my_classes = Classroom::all();
           $grades = Grade::all();
-          return view('dashboard.my_classes.my_classes', compact('my_classes','grades'));
+          return view('dashboard.my_classes.my_classes', compact('my_classes', 'grades'));
       }
 
       public function create()
@@ -49,7 +49,7 @@ class ClassroomController extends Controller
 
             }
             DB::commit();
-            toastr()->success(trans('cpavel/messages.success'));
+            toastr()->success(trans('cpanel/messages.success'));
 
             return redirect()->route('classrooms.index');
 
@@ -81,7 +81,7 @@ class ClassroomController extends Controller
           ]);
 
           DB::commit();
-          toastr()->success(trans('cpavel/messages.Update'));
+          toastr()->success(trans('cpanel/messages.Update'));
 
           return redirect()->route('classrooms.index');
       }
@@ -96,7 +96,7 @@ class ClassroomController extends Controller
     {
         $classrooms = Classroom::findOrFail($request->id)->delete();
 
-        toastr()->error(trans('cpavel/messages.Delete'));
+        toastr()->error(trans('cpanel/messages.Delete'));
 
         return redirect()->route('classrooms.index');
     }
@@ -106,7 +106,7 @@ class ClassroomController extends Controller
         $delete_all_id = explode(",", $request->delete_all_id);
 
         Classroom::whereIn('id', $delete_all_id)->Delete();
-        toastr()->error(trans('cpavel/messages.Delete'));
+        toastr()->error(trans('cpanel/messages.Delete'));
         return redirect()->route('classrooms.index');
     }
 

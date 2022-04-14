@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Students.index')}}">
+                        <a href="{{route('admin.students')}}">
                             {{trans('cpanel/students.Students')}}
                         </a>
                     </li>
@@ -46,10 +46,10 @@
             </button>
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{{route('Students.create')}}">
+                <a class="dropdown-item" href="{{route('admin.students.create')}}">
                     {{trans('cpanel/sidebar.Add Student')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Students.index')}}">
+                <a class="dropdown-item" href="{{route('admin.students')}}">
                     {{trans('cpanel/sidebar.List Students')}}
                 </a>
                 <a class="dropdown-item" href="{{route('Promotion.index')}}">
@@ -156,12 +156,7 @@
                                                 <th scope="row">{{trans('cpanel/students.parent')}}</th>
                                                 <td>{{ $student->myparent->name_father}}</td>
                                             </tr>
-                                            {{--
-                                            <tr>
-                                                <th scope="row">{{trans('cpanel/students.Blood Type')}}</th>
-                                                <td>{{ $student->name_blod}}</td>
-                                            </tr>
-                                            --}}
+
                                             <tr>
                                                 <th scope="row">{{trans('cpanel/students.Academic Year')}}</th>
                                                 <td>{{ $student->academic_year }}</td>
@@ -173,7 +168,8 @@
 
                                 <div class="tab-pane" id="pill12" aria-labelledby="base-pill12">
                                     <hr>
-                                    <form class="form" method="post" action="{{route('Upload_attachment')}}"
+                                    <form class="form" method="post"
+                                          action="{{route('upload_attachment')}}"
                                           enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-body">
@@ -267,7 +263,7 @@
                 <div class="col-sm-6 col-12 text-center text-sm-left">
                     <div class="media row">
                         <div class="col-12 col-sm-3 col-xl-2">
-                            <img src="../../../app-assets/images/logo/logo-80x80.png"
+                            <img src="ashry/back/app-assets/images/logo/logo-80x80.png"
                                  alt="..." class="mb-1 mb-sm-0" />
                         </div>
                         <div class="col-12 col-sm-9 col-xl-10">
@@ -417,7 +413,7 @@
                         </div>
                         <div class="text-center">
                             <p class="mb-0 mt-1">Authorized person</p>
-                            <img src="../../../app-assets/images/pages/signature-scan.png" alt="signature" class="height-100" />
+                            <img src="ashry/back/app-assets/images/pages/signature-scan.png" alt="signature" class="height-100" />
                             <h6>Amanda Orton</h6>
                             <p class="text-muted">Managing Director</p>
                         </div>

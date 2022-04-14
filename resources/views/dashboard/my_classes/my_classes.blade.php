@@ -42,12 +42,11 @@
 
 </div>
 
+<!-- add_modal_class -->
 <div class="content-body">
-
     <section id="configuration">
         <div class="col-12">
             <div class="card">
-
                 <div class="card-header">
                     <h3 class="card-title" id="repeat-form">
                         {{trans('cpanel/myclasses.Add Classrooms')}}
@@ -147,7 +146,6 @@
 </div>
 
 <div class="content-body">
-
     <div class="col-xl-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
@@ -162,17 +160,9 @@
                     </div>
                 @endif
 
-                <button type="button" class="btn btn-primary"
-                        data-toggle="modal"
-                        data-target="#exampleModal">
-                    {{ trans('cpanel/myclasses.add_class') }}
-                </button>
-
                 <button type="button" class="btn btn-danger" id="btn_delete_all">
                     {{ trans('cpanel/myclasses.delete_checkbox') }}
                 </button>
-
-
                 <br><br>
 
                 <div class="table-responsive">
@@ -367,102 +357,6 @@
         </div>
     </div>
 
-
-    <!-- add_modal_class -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                        {{ trans('cpanel/myclasses.add_class') }}
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <form class="row mb-30" action="{{ route('classrooms.store') }}" method="POST">
-                        @csrf
-                        <div class="card-body">
-                            <div class="repeater">
-                                <div data-repeater-list="list_classes">
-                                    <div data-repeater-item>
-                                        <div class="row">
-
-                                            <div class="col">
-                                                <label for="Name" class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Name Class Ar') }}:
-                                                </label>
-                                                <input class="form-control" type="text" name="name" />
-                                            </div>
-
-                                            <div class="col">
-                                                <label for="Name" class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Name Class En') }}:
-                                                </label>
-                                                <input class="form-control" type="text" name="name_class_en" />
-                                            </div>
-
-                                            <div class="col">
-                                                <label for="name_en"
-                                                       class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Name Grade') }}:
-                                                </label>
-
-                                                <div class="box">
-                                                    <select class="form-control form-control-lg"
-                                                            id="exampleFormControlSelect1" name="grade_id">
-                                                        @foreach ($grades as $grade)
-                                                            <option value="{{ $grade->id }}">
-                                                                {{ $grade->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col">
-                                                <label for="Name_en"
-                                                       class="mr-sm-2">
-                                                    {{ trans('cpanel/myclasses.Processes') }}:
-                                                </label>
-                                                <input class="btn btn-danger btn-block" data-repeater-delete
-                                                       type="button" value="{{ trans('cpanel/myclasses.delete_row') }}" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mt-20">
-                                    <div class="col-12">
-                                        <input class="button" data-repeater-create type="button"
-                                               value="{{ trans('cpanel/myclasses.add_row') }}"/>
-                                    </div>
-
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">
-                                        {{ trans('cpanel/myclasses.Close') }}
-                                    </button>
-                                    <button type="submit" class="btn btn-success">
-                                        {{ trans('cpanel/myclasses.Submit') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- حذف مجموعة صفوف -->
     <div class="modal fade" id="delete_all" tabindex="-1"
          role="dialog" aria-labelledby="exampleModalLabel"
@@ -502,7 +396,6 @@
     </div>
 
 </div>
-
 
 @endsection
 

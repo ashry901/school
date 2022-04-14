@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{route('Students.index')}}">
+                            <a href="{{route('admin.students')}}">
                                 {{trans('cpanel/students.Students')}}
                             </a>
                         </li>
@@ -44,22 +44,22 @@
             </button>
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{{route('Students.create')}}">
+                <a class="dropdown-item" href="{{route('admin.students.create')}}">
                     {{trans('cpanel/sidebar.Add Student')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Students.index')}}">
+                <a class="dropdown-item" href="{{route('admin.students')}}">
                     {{trans('cpanel/sidebar.List Students')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Promotion.index')}}">
+                <a class="dropdown-item" href="{{route('promotion.index')}}">
                     {{trans('cpanel/sidebar.Add Promotion')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Promotion.create')}}">
+                <a class="dropdown-item" href="{{route('promotion.create')}}">
                     {{trans('cpanel/sidebar.List Promotions')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Graduated.create')}}">
+                <a class="dropdown-item" href="{{route('graduated.create')}}">
                     {{trans('cpanel/sidebar.Add Graduate')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Graduated.index')}}">
+                <a class="dropdown-item" href="{{route('graduated.index')}}">
                     {{trans('cpanel/sidebar.List Graduate')}}
                 </a>
             </div>
@@ -97,7 +97,7 @@
 
                             </div>
                             <form class="form" method="post"
-                                  action="{{ route('Students.store') }}"
+                                  action="{{ route('admin.students.store') }}"
                                   autocomplete="off" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-body">
@@ -215,7 +215,7 @@
                                                     <option selected disabled>
                                                         {{trans('cpanel/students.Choose')}}...
                                                     </option>
-                                                    @foreach($bloods as $bg)
+                                                    @foreach($bloodtypes as $bg)
                                                         <option value="{{ $bg->id }}">
                                                             {{ $bg->name }}
                                                         </option>
@@ -352,4 +352,59 @@
 @section('script')
     @toastr_js
     @toastr_render
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="grade_id"]').on('change', function () {
+                var grade_id = $(this).val();
+                if (grade_id) {
+                    $.ajax({
+                        {{--url: "{{ URL::to('get_classrooms') }}/" + grade_id,--}}
+                        url: 'get_classrooms/' + grade_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="classroom_id"]').empty();
+                            $('select[name="classroom_id"]').append('<option selected disabled >{{trans('cpanel/parent.Choose')}}...</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="classroom_id"]').on('change', function () {
+                var classroom_id = $(this).val();
+                if (classroom_id) {
+                    $.ajax({
+                        {{--url: "{{ URL::to('get_sections') }}/" + classroom_id,--}}
+                        url: 'get_sections/' + classroom_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="section_id"]').empty();
+                            $.each(data, function (key, value) {
+                                $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
+
 @endsection

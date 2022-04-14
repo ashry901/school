@@ -14,7 +14,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('Delete_attachment')}}" method="post">
+                <form action="{{route('delete_attachment')}}" method="post">
                     @csrf
 
                     <input type="hidden" name="id" value="{{$attachment->id}}">

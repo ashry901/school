@@ -148,6 +148,7 @@
                                         </tr>
                                     </tbody>
 
+                                    <!-- Edit Modal Grade -->
                                     <div class="modal fade"
                                              id="edit{{ $grade->id }}"
                                              tabindex="-1"

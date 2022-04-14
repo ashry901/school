@@ -165,6 +165,8 @@
 
 
 @section('script')
+    @toastr_js
+    @toastr_render
 
     <script>
         $(document).ready(function () {
@@ -188,7 +190,4 @@
             });
         });
     </script>
-
-    @toastr_js
-    @toastr_render
 @endsection

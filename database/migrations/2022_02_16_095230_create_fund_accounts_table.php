@@ -17,10 +17,6 @@ class CreateFundAccountsTable extends Migration
             $table->decimal('credit',8,2)->nullable();
             $table->string('description');
             $table->timestamps();
-
-
-
-
         });
     }
 

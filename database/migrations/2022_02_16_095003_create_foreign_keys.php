@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateForeignKeys extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('classrooms', function(Blueprint $table) {
@@ -21,11 +16,6 @@ class CreateForeignKeys extends Migration
 
         Schema::table('sections', function(Blueprint $table) {
             $table->foreign('grade_id')->references('id')->on('grades')
-                ->onDelete('cascade');
-        });
-
-        Schema::table('sections', function(Blueprint $table) {
-            $table->foreign('class_id')->references('id')->on('classrooms')
                 ->onDelete('cascade');
         });
 

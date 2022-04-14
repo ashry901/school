@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Students.index')}}">
+                        <a href="{{route('admin.students')}}">
                             {{trans('cpanel/students.Students')}}
                         </a>
                     </li>
@@ -51,22 +51,22 @@
             </button>
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{{route('Students.create')}}">
+                <a class="dropdown-item" href="{{route('admin.students.create')}}">
                     {{trans('cpanel/sidebar.Add Student')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Students.index')}}">
+                <a class="dropdown-item" href="{{route('admin.students')}}">
                     {{trans('cpanel/sidebar.List Students')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Promotion.index')}}">
+                <a class="dropdown-item" href="{{route('promotion.index')}}">
                     {{trans('cpanel/sidebar.Add Promotion')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Promotion.create')}}">
+                <a class="dropdown-item" href="{{route('promotion.create')}}">
                     {{trans('cpanel/sidebar.List Promotions')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Graduated.create')}}">
+                <a class="dropdown-item" href="{{route('graduated.create')}}">
                     {{trans('cpanel/sidebar.Add Graduate')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Graduated.index')}}">
+                <a class="dropdown-item" href="{{route('graduated.index')}}">
                     {{trans('cpanel/sidebar.List Graduate')}}
                 </a>
             </div>
@@ -139,8 +139,8 @@
                                                 </td>
                                             </tr>
 
-                                        @include('dashboard.Students.promotion.delete_all')
-                                        @include('dashboard.Students.promotion.delete_one')
+                                        @include('dashboard.students.promotion.delete_all')
+                                        @include('dashboard.students.promotion.delete_one')
 
                                         @endforeach
                                     </table>
@@ -159,6 +159,7 @@
 
 
 @section('script')
+
     <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
     <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('ashry/back/app-assets/vendors/js/tables/buttons.colVis.min.js')}}"></script>

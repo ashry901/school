@@ -1316,20 +1316,10 @@
     <script src="{{asset('ashry/back/app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('ashry/back/app-assets/js/scripts/forms/wizard-steps.js')}}"></script>
 
-{{--    <script>--}}
-{{--        $(".number-tab-steps").steps({--}}
-{{--            headerTag: "h6",--}}
-{{--            bodyTag: "fieldset",--}}
-{{--            transitionEffect: "fade",--}}
-{{--            titleTemplate: '#index# #title#',--}}
-{{--            labels: {--}}
-{{--                finish: 'Submit'--}}
-{{--            },--}}
-{{--            onFinished: function (event, currentIndex) {--}}
-{{--                alert("Form submitted.");--}}
-{{--            }--}}
-{{--        });--}}
-{{--    </script>--}}
+    <script src="{{asset('ashry/back/app-assets/vendors/js/extensions/jquery.raty.js')}}"></script>
+
+    <script src="{{asset('ashry/back/app-assets/js/scripts/modal/components-modal.js')}}"></script>
+
 
     <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
     <script src="{{asset('ashry/back/app-assets/js/scripts/tables/datatables/datatable-basic.js')}}"></script>

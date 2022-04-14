@@ -3,7 +3,7 @@
 namespace App\Repository;
 
 use App\Models\Grade;
-use App\Models\promotion;
+use App\Models\Promotion;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +18,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
     public function create()
     {
-        $promotions = promotion::all();
+        $promotions = Promotion::all();
         return view('dashboard.students.promotion.management', compact('promotions'));
     }
 
@@ -27,6 +27,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
         DB::beginTransaction();
 
         try {
+
             $students = Student::where('grade_id', $request->grade_id)
                 ->where('classroom_id', $request->classroom_id)
                 ->where('section_id', $request->section_id)

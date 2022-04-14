@@ -26,7 +26,15 @@ class QuizzRepository implements QuizzRepositoryInterface
 
     public function store($request)
     {
-        //Quizze::create([]);
+//        Quizze::create([
+//        'name'          => ['en' => $request->name_en, 'ar' => $request->name_ar,
+//        'subject_id'    => $request->subject_id,
+//        'grade_id'      => $request->grade_id,
+//        'classroom_id'  => $request->classroom_id,
+//        'section_id'    => $request->section_id,
+//        'teacher_id'    => $request->teacher_id,
+//        ]);
+
 //        try {
             //DB::beginTransaction();
             $quizzes = new Quizze();

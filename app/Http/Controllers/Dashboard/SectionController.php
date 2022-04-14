@@ -22,35 +22,33 @@ class SectionController extends Controller
         return view('dashboard.sections.sections', compact('grades','list_grades', 'teachers'));
     }
 
-  public function store(StoreSections $request)
-  {
-    try {
+    public function store(StoreSections $request)
+    {
+        try {
+            $validated = $request->validated();
+            $sections = new Section();
 
-        $validated = $request->validated();
-        $sections = new Section();
+            $sections->name_section = ['ar' => $request->name_section_ar, 'en' => $request->name_section_en];
+            $sections->grade_id = $request->grade_id;
+            $sections->class_id = $request->class_id;
+            $sections->status = 1;
+            $sections->save();
 
-        $sections->name_section = ['ar' => $request->name_section_ar, 'en' => $request->name_section_en];
-        $sections->grade_id = $request->grade_id;
-        $sections->class_id = $request->class_id;
-        $sections->status = 1;
-        $sections->save();
+            $sections->teachers()->attach($request->teacher_id);
 
-        $sections->teachers()->attach($request->teacher_id);
+            toastr()->success(trans('cpanel/messages.success'));
 
-        toastr()->success(trans('cpavel/messages.success'));
-
-        return redirect()->route('sections.index');
-      }
+            return redirect()->route('sections.index');
+        }
 
       catch (\Exception $e){
           return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-      }
+    }
 
   }
 
   public function update(StoreSections $request)
   {
-
      try {
         $validated = $request->validated();
         $sections = Section::findOrFail($request->id);
@@ -73,7 +71,7 @@ class SectionController extends Controller
         }
 
         $sections->save();
-        toastr()->success(trans('cpavel/messages.Update'));
+        toastr()->success(trans('cpanel/messages.Update'));
 
         return redirect()->route('sections.index');
       }
@@ -87,16 +85,16 @@ class SectionController extends Controller
   public function destroy(request $request)
   {
     Section::findOrFail($request->id)->delete();
-    toastr()->error(trans('cpavel/messages.Delete'));
+    toastr()->error(trans('cpanel/messages.Delete'));
     return redirect()->route('sections.index');
   }
 
     public function getclasses($id)
     {
         $list_classes = Classroom::where("grade_id", $id)->pluck("name_class", "id");
-
         return $list_classes;
     }
 
 }
+
 
