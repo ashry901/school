@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Quizzes.index')}}">
+                        <a href="{{route('admin.quizzes')}}">
                             {{trans('cpanel/teacher.Quizzes')}}
                         </a>
                     </li>
@@ -68,7 +68,7 @@
                             </div>
 
                             <form class="form"
-                                  action="{{route('Quizzes.store')}}"
+                                  action="{{route('admin.quizzes.store')}}"
                                   method="post"
                                   autocomplete="off">
                                 @csrf
@@ -160,7 +160,7 @@
                                                     {{trans('cpanel/teacher.Classroom')}}
                                                 </label>
 
-                                                <select class="form-control" name="class_id">
+                                                <select class="form-control" name="classroom_id">
 
                                                 </select>
                                             </div>
@@ -171,11 +171,8 @@
                                                 <label for="section_id">
                                                     {{trans('cpanel/teacher.Section')}}
                                                 </label>
-                                                <select name="section_id" class="form-control">
-                                                    <option selected disabled>
-                                                        {{trans('cpanel/teacher.Choose')}}...
-                                                    </option>
-                                                    <option></option>
+                                                <select class="form-control" name="section_id">
+
                                                 </select>
                                             </div>
                                         </div>

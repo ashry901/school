@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\Models\Classroom;
 use App\Models\Fee;
 use App\Models\Grade;
 //use Illuminate\Support\Facades\DB;
+use App\Models\Section;
 use DB;
 
 class FeesRepository implements FeesRepositoryInterface
@@ -92,5 +94,17 @@ class FeesRepository implements FeesRepositoryInterface
         catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function getClassroom($id)
+    {
+        $list_classes = Classroom::where("grade_id", $id)->pluck("name_class", "id");
+        return $list_classes;
+    }
+
+    public function getSection($id)
+    {
+        $list_sections = Section::where("class_id", $id)->pluck("name_section", "id");
+        return $list_sections;
     }
 }

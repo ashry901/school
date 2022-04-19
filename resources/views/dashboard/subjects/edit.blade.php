@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('subjects.index')}}">
+                        <a href="{{route('admin.subjects')}}">
                             {{trans('cpanel/teacher.Subjects')}}
                         </a>
                     </li>
@@ -68,7 +68,7 @@
                             </div>
 
                             <form class="form"
-                                  action="{{route('subjects.update', 'test')}}"
+                                  action="{{route('admin.subjects.update', 'test')}}"
                                   method="post" autocomplete="off">
                                 {{ method_field('patch') }}
                                 @csrf

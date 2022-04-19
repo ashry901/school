@@ -143,7 +143,7 @@
                                                         {{trans('cpanel/students.Show Info')}}
                                                     </a>
 
-                                                    <a href="{{route('fees_invoices.show', $student->id)}}"
+                                                    <a href="{{route('admin.fees_invoices.show', $student->id)}}"
                                                        class="dropdown-item">
                                                         <i class="ft-plus-circle primary"></i>
                                                         {{trans('cpanel/students.Add Invoices')}}

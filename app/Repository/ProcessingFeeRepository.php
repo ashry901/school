@@ -49,7 +49,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
             DB::commit();
             toastr()->success(trans('cpanel/messages.success'));
 
-            return redirect()->route('ProcessingFee.index');
+            return redirect()->route('processingFee.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -89,7 +89,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
 
             DB::commit();
             toastr()->success(trans('cpanel/messages.Update'));
-            return redirect()->route('ProcessingFee.index');
+            return redirect()->route('processingFee.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

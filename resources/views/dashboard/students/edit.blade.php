@@ -50,16 +50,16 @@
                 <a class="dropdown-item" href="{{route('admin.students')}}">
                     {{trans('cpanel/sidebar.List Students')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Promotion.index')}}">
+                <a class="dropdown-item" href="{{route('admin.promotion')}}">
                     {{trans('cpanel/sidebar.Add Promotion')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Promotion.create')}}">
+                <a class="dropdown-item" href="{{route('admin.promotion.create')}}">
                     {{trans('cpanel/sidebar.List Promotions')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Graduated.create')}}">
+                <a class="dropdown-item" href="{{route('admin.graduated.create')}}">
                     {{trans('cpanel/sidebar.Add Graduate')}}
                 </a>
-                <a class="dropdown-item" href="{{route('Graduated.index')}}">
+                <a class="dropdown-item" href="{{route('admin.graduated')}}">
                     {{trans('cpanel/sidebar.List Graduate')}}
                 </a>
             </div>

@@ -12,9 +12,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('Fees.destroy','test')}}" method="post">
+                <form action="{{route('admin.fees.delete','test')}}" method="GET">
                     @csrf
-                    @method('DELETE')
                     <input type="hidden" name="id" value="{{$fee->id}}">
                     <h5 style="font-family: 'Cairo', sans-serif;">
                         {{trans('cpanel/students.Deleted_Student_tilte')}}

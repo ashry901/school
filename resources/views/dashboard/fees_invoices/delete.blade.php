@@ -6,18 +6,22 @@
                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
                     {{trans('cpanel/fees.Delete Invoice')}}
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('Fees_Invoices.destroy','test')}}" method="post">
+                <form action="{{route('admin.fees_invoices.delete','test')}}" method="GET">
                     @csrf
-                    @method('DELETE')
+
                     <input type="hidden" name="id" value="{{$fee_invoice->id}}">
-                    <h5 style="font-family: 'Cairo', sans-serif;">{{trans('cpanel/students.Deleted_Student')}}</h5>
+                    <h5 style="font-family: 'Cairo', sans-serif;">
+                        {{trans('cpanel/students.Deleted_Student')}}
+                    </h5>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">
                             {{trans('cpanel/students.Close')}}
                         </button>
 

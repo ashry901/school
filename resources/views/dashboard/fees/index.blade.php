@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Fees.index')}}">
+                        <a href="{{route('admin.fees')}}">
                             {{trans('cpanel/fees.Accounting')}}
                         </a>
                     </li>
@@ -51,11 +51,11 @@
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item"
-                   href="{{route('Fees.index')}}">
+                   href="{{route('admin.fees')}}">
                     {{trans('cpanel/sidebar.Studying Fees')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('Fees_Invoices.index')}}">
+                   href="{{route('admin.fees_invoices')}}">
                     {{trans('cpanel/sidebar.Invoices')}}
                 </a>
                 <a class="dropdown-item"
@@ -63,11 +63,11 @@
                     {{trans('cpanel/sidebar.Receipt')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('ProcessingFee.index')}}">
+                   href="{{route('processingFee.index')}}">
                     {{trans('cpanel/sidebar.Fee Exclusion')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('Payment_students.index')}}">
+                   href="{{route('payment_students.index')}}">
                     {{trans('cpanel/sidebar.Exchange Receipts')}}
                 </a>
             </div>
@@ -86,7 +86,7 @@
 
 
                     <div class="card-body">
-                        <a href="{{route('Fees.create')}}"
+                        <a href="{{route('admin.fees.create')}}"
                            class="btn btn-success btn-sm" role="button"
                            aria-pressed="true">
                             {{trans('cpanel/fees.Add New Invoices')}}
@@ -139,7 +139,7 @@
                                                     {{trans('cpanel/students.Show Info')}}
                                                 </a>
 
-                                                <a href="{{route('Fees.edit',$fee->id)}}"
+                                                <a href="{{route('admin.fees.edit',$fee->id)}}"
                                                    class="dropdown-item">
                                                     <i class="ft-edit-2"></i>
                                                     {{trans('cpanel/students.Edit')}}

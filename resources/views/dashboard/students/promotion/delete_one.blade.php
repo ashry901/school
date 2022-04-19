@@ -12,9 +12,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('promotion.destroy','test')}}" method="post">
+                <form action="{{route('admin.promotion.delete','test')}}" method="GET">
                     @csrf
-                    @method('DELETE')
+                    {{--                    @method('DELETE')--}}
                     <input type="hidden" name="id" value="{{$promotion->id}}">
                     <h5 style="font-family: 'Cairo', sans-serif;">
                         {{trans('cpanel/students.sure delete one')}}

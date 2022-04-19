@@ -23,6 +23,8 @@
     @endif
     <!-- END: Vendor CSS-->
 
+
+
     <!-- BEGIN: Theme CSS-->
     @if (App::getLocale() == 'ar')
     <link rel="stylesheet" type="text/css" href="{{asset('ashry/back/app-assets/css-rtl/bootstrap.css')}}">
@@ -124,6 +126,8 @@
 <script src="{{asset('ashry/back/app-assets/vendors/js/vendors.min.js')}}"></script>
 <!-- BEGIN Vendor JS-->
 
+    <script src="{{asset('ashry/back/app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
+
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{asset('ashry/back/app-assets/vendors/js/charts/chart.min.js')}}"></script>
 <script src="{{asset('ashry/back/app-assets/vendors/js/charts/apexcharts/apexcharts.min.js')}}"></script>
@@ -131,36 +135,132 @@
 
     @yield('script')
 
+    <script>
+        function CheckAll(className, elem) {
+            var elements = document.getElementsByClassName(className);
+            var l = elements.length;
+
+            if (elem.checked) {
+                for (var i = 0; i < l; i++) {
+                    elements[i].checked = true;
+                }
+            } else {
+                for (var i = 0; i < l; i++) {
+                    elements[i].checked = false;
+                }
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="grade_id"]').on('change', function () {
+                var grade_id = $(this).val();
+                if (grade_id) {
+                    $.ajax({
+                        {{--url: "{{ URL::to('get_classrooms') }}/" + grade_id,--}}
+                        url: 'get_classrooms/' + grade_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="classroom_id"]').empty();
+                            $('select[name="classroom_id"]').append('<option selected disabled >{{trans('cpanel/parent.Choose')}}...</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="classroom_id"]').on('change', function () {
+                var classroom_id = $(this).val();
+                if (classroom_id) {
+                    $.ajax({
+                        {{--url: "{{ URL::to('get_sections') }}/" + classroom_id,--}}
+                        url: 'get_sections/' + classroom_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="section_id"]').empty();
+                            $.each(data, function (key, value) {
+                                $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="grade_id_new"]').on('change', function () {
+                var grade_id = $(this).val();
+                if (grade_id) {
+                    $.ajax({
+                        {{--url: "{{ URL::to('get_classrooms') }}/" + grade_id,--}}
+                        url: 'get_classrooms/' + grade_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="classroom_id_new"]').empty();
+                            $('select[name="classroom_id_new"]').append('<option selected disabled >{{trans('cpanel/parent.Choose')}}...</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('select[name="classroom_id_new"]').on('change', function () {
+                var classroom_id = $(this).val();
+                if (classroom_id) {
+                    $.ajax({
+                        {{--url: "{{ URL::to('get_sections') }}/" + classroom_id,--}}
+                        url: 'get_sections/' + classroom_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="section_id_new"]').empty();
+                            $.each(data, function (key, value) {
+                                $('select[name="section_id_new"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                }
+                else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
+
 <!-- BEGIN: Theme JS-->
 <script src="{{asset('ashry/back/app-assets/js/core/app-menu.js')}}"></script>
 <script src="{{asset('ashry/back/app-assets/js/core/app.js')}}"></script>
 <!-- END: Theme JS-->
 
-
-
-
-{{--<script>--}}
-{{--    $(document).ready(function() {--}}
-{{--        $('#datatable').DataTable();--}}
-{{--    } );--}}
-{{--</script>--}}
-
-<script>
-    function CheckAll(className, elem) {
-        var elements = document.getElementsByClassName(className);
-        var l = elements.length;
-
-        if (elem.checked) {
-            for (var i = 0; i < l; i++) {
-                elements[i].checked = true;
-            }
-        } else {
-            for (var i = 0; i < l; i++) {
-                elements[i].checked = false;
-            }
-        }
-    }
-</script>
 
 
 </body>

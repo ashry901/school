@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('promotion.destroy', 'test')}}" method="post">
+                <form action="{{route('admin.promotion.delete', 'test')}}" method="post">
                     @csrf
                     @method('DELETE')
 

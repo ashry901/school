@@ -35,37 +35,25 @@
         </div>
     </div>
 
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group"
-             aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1"
-                    id="btnGroupDrop1" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                <i class="ft-list icon-left"></i>
-                {{trans('cpanel/sidebar.Students')}}
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{{route('admin.students.create')}}">
-                    {{trans('cpanel/sidebar.Add Student')}}
-                </a>
-                <a class="dropdown-item" href="{{route('admin.students')}}">
-                    {{trans('cpanel/sidebar.List Students')}}
-                </a>
-                <a class="dropdown-item" href="{{route('Promotion.index')}}">
-                    {{trans('cpanel/sidebar.Add Promotion')}}
-                </a>
-                <a class="dropdown-item" href="{{route('Promotion.create')}}">
-                    {{trans('cpanel/sidebar.List Promotions')}}
-                </a>
-                <a class="dropdown-item" href="{{route('Graduated.create')}}">
-                    {{trans('cpanel/sidebar.Add Graduate')}}
-                </a>
-                <a class="dropdown-item" href="{{route('Graduated.index')}}">
-                    {{trans('cpanel/sidebar.List Graduate')}}
-                </a>
-            </div>
-        </div>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <a class="dropdown-item" href="{{route('admin.students.create')}}">
+            {{trans('cpanel/sidebar.Add Student')}}
+        </a>
+        <a class="dropdown-item" href="{{route('admin.students')}}">
+            {{trans('cpanel/sidebar.List Students')}}
+        </a>
+        <a class="dropdown-item" href="{{route('admin.promotion')}}">
+            {{trans('cpanel/sidebar.Add Promotion')}}
+        </a>
+        <a class="dropdown-item" href="{{route('admin.promotion.create')}}">
+            {{trans('cpanel/sidebar.List Promotions')}}
+        </a>
+        <a class="dropdown-item" href="{{route('admin.graduated.create')}}">
+            {{trans('cpanel/sidebar.Add Graduate')}}
+        </a>
+        <a class="dropdown-item" href="{{route('admin.graduated')}}">
+            {{trans('cpanel/sidebar.List Graduate')}}
+        </a>
     </div>
 
 </div>
@@ -220,7 +208,7 @@
                                                     </td>
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
-                                                           href="{{url('Download_attachment')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
+                                                           href="{{url('download_attachment')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
                                                            role="button">
                                                             <i class="fas fa-download"></i>&nbsp;
                                                             {{trans('cpanel/students.Download')}}

@@ -22,7 +22,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Fees.index')}}">
+                        <a href="{{route('admin.fees')}}">
                             {{trans('cpanel/fees.Accounting')}}
                         </a>
                     </li>
@@ -46,11 +46,11 @@
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item"
-                   href="{{route('Fees.index')}}">
+                   href="{{route('admin.fees')}}">
                     {{trans('cpanel/sidebar.Studying Fees')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('Fees_Invoices.index')}}">
+                   href="{{route('admin.fees_invoices')}}">
                     {{trans('cpanel/sidebar.Invoices')}}
                 </a>
                 <a class="dropdown-item"
@@ -58,11 +58,11 @@
                     {{trans('cpanel/sidebar.Receipt')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('ProcessingFee.index')}}">
+                   href="{{route('processingFee.index')}}">
                     {{trans('cpanel/sidebar.Fee Exclusion')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('Payment_students.index')}}">
+                   href="{{route('payment_students.index')}}">
                     {{trans('cpanel/sidebar.Exchange Receipts')}}
                 </a>
             </div>
@@ -117,7 +117,7 @@
                                             <td>{{ number_format($payment_student->amount, 2) }}</td>
                                             <td>{{$payment_student->description}}</td>
                                             <td>
-                                                <a href="{{route('Payment_students.edit',$payment_student->id)}}"
+                                                <a href="{{route('payment_students.edit',$payment_student->id)}}"
                                                    class="btn btn-info btn-sm" role="button"
                                                    aria-pressed="true">
                                                     <i class="ft-edit-2"></i>

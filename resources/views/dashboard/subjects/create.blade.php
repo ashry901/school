@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('subjects.index')}}">
+                        <a href="{{route('admin.subjects')}}">
                             {{trans('cpanel/teacher.Subjects')}}
                         </a>
                     </li>
@@ -68,7 +68,7 @@
                             </div>
 
                             <form class="form"
-                                  action="{{route('subjects.store')}}"
+                                  action="{{route('admin.subjects.store')}}"
                                   method="post" autocomplete="off">
                                 @csrf
                                 <div class="form-body">
@@ -168,13 +168,15 @@
     @toastr_js
     @toastr_render
 
+
     <script>
         $(document).ready(function () {
             $('select[name="grade_id"]').on('change', function () {
                 var grade_id = $(this).val();
                 if (grade_id) {
                     $.ajax({
-                        url: "{{ URL::to('classes') }}/" + grade_id,
+                        {{--url: "{{ URL::to('classes') }}/" + grade_id,--}}
+                        url: 'classes/' + grade_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
@@ -190,4 +192,5 @@
             });
         });
     </script>
+
 @endsection

@@ -56,7 +56,7 @@
 @endif
 
 
-<form class="form" method="post" action="{{ route('Attendance.store') }}">
+<form class="form" method="post" action="{{ route('attendance.store') }}">
     @csrf
     <div class="table-responsive">
         <table class="table">

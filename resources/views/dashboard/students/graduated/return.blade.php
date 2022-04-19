@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('graduated.update','test')}}" method="post"
+                <form action="{{route('admin.graduated.update','test')}}" method="post"
                       autocomplete="off">
                     @method('PUT')
                     @csrf

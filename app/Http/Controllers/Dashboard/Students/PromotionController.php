@@ -3,33 +3,44 @@
 namespace App\Http\Controllers\Dashboard\Students;
 
 use App\Http\Controllers\Controller;
-use App\Repository\StudentPromotionRepositoryInterface;
 use Illuminate\Http\Request;
-
 use App\Models\Grade;
 use App\Models\Promotion;
 use App\Models\Student;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Section;
+use App\Models\Classroom;
 use Illuminate\Support\Facades\DB;
 
 class PromotionController extends Controller
 {
     public function index()
     {
+        $students = Student::all();
+        $promotions = Promotion::all();
         $grades = Grade::all();
-        return view('dashboard.students.promotion.index', compact('grades'));
+        return view('dashboard.students.promotion.index', compact(
+            'grades', 'promotions', 'students'));
     }
 
     public function create()
     {
-        $promotions = Promotion::all();
-        return view('dashboard.students.promotion.management', compact('promotions'));
+        $data = [];
+        $data['grades']     = Grade::all();
+        $data['classrooms'] = Classroom::all();
+
+        return view('dashboard.students.promotion.create', $data);
+
+//        $grades = Grade::all();
+//        $sections = Section::all();
+//        $classrooms = Classroom::all();
+//        return view('dashboard.students.promotion.create', compact(
+//            'grades', 'sections', 'classrooms'
+//        ));
     }
 
     public function store(Request $request)
     {
         DB::beginTransaction();
-
         try {
 
             $students = Student::where('grade_id', $request->grade_id)
@@ -43,7 +54,6 @@ class PromotionController extends Controller
 
             // update in table student
             foreach ($students as $student){
-
                 $ids = explode(',', $student->id);
                 Student::whereIn('id', $ids)
                     ->update([
@@ -75,6 +85,18 @@ class PromotionController extends Controller
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function getClassrooms($id)
+    {
+        $list_classes = Classroom::where("grade_id", $id)->pluck("name_class", "id");
+        return $list_classes;
+    }
+
+    public function getSections($id)
+    {
+        $list_sections = Section::where("class_id", $id)->pluck("name_section", "id");
+        return $list_sections;
     }
 
     public function show($id)

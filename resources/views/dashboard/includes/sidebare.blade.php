@@ -100,15 +100,13 @@
                     <span data-i18n="Students Promotions">
                         {{trans('cpanel/sidebar.Promotions')}}
                     </span>
-                    <span class="badge badge badge-pill badge-danger float-right mr-2">
-                        {{\App\Models\Promotion::count()}}
-                    </span>
+
                 </a>
 
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item"
-                           href="{{route('promotion.create')}}"><i></i>
+                           href="{{route('admin.promotion.create')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="Add Promotion">
                                 {{trans('cpanel/sidebar.Add Promotion')}}
@@ -118,10 +116,13 @@
 
                     <li>
                         <a class="menu-item"
-                           href="{{route('promotion.index')}}"><i></i>
+                           href="{{route('admin.promotion')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="List Promotions">
                                 {{trans('cpanel/sidebar.List Promotions')}}
+                            </span>
+                            <span class="badge badge badge-pill badge-danger float-right mr-2">
+                                {{\App\Models\Promotion::count()}}
                             </span>
                         </a>
                     </li>
@@ -134,15 +135,12 @@
                     <span data-i18n="Graduate Students">
                         {{trans('cpanel/sidebar.Graduate')}}
                     </span>
-                    <span class="badge badge badge-pill badge-info float-right mr-2">
-                        50005
-                    </span>
                 </a>
 
                 <ul class="menu-content">
                     <li>
                         <a class="menu-item"
-                           href="{{route('graduated.create')}}"><i></i>
+                           href="{{route('admin.graduated.create')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="Add Graduate">
                                 {{trans('cpanel/sidebar.Add Graduate')}}
@@ -152,7 +150,7 @@
 
                     <li>
                         <a class="menu-item"
-                           href="{{route('graduated.index')}}"><i></i>
+                           href="{{route('admin.graduated')}}"><i></i>
                             <i class="la la-minus"></i>
                             <span data-i18n="List Graduate">
                                 {{trans('cpanel/sidebar.List Graduate')}}
@@ -222,7 +220,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('fees.index')}}"><i></i>
+                <a class="menu-item" href="{{route('admin.fees')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Studying Fees')}}
                     </span>
@@ -230,7 +228,7 @@
             </li>
 
             <li>
-                <a class="menu-item" href="{{route('fees_invoices.index')}}"><i></i>
+                <a class="menu-item" href="{{route('admin.fees_invoices')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.Invoices')}}
                     </span>
@@ -296,7 +294,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('subjects.index')}}"><i></i>
+                <a class="menu-item" href="{{route('admin.subjects')}}"><i></i>
                     <span data-i18n="Bootstrap">
                         {{trans('cpanel/sidebar.List Subjects')}}
                     </span>
@@ -317,7 +315,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('Quizzes.index')}}"><i></i>
+                <a class="menu-item" href="{{route('admin.quizzes')}}"><i></i>
                     <span data-i18n="Quizzes List">
                         {{trans('cpanel/sidebar.Quizzes List')}}
                     </span>

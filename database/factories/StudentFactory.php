@@ -15,7 +15,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-
 class StudentFactory extends Factory
 {
     protected $model = Student::class;
@@ -33,7 +32,7 @@ class StudentFactory extends Factory
             'grade_id'          => rand(1, 4),
             'classroom_id'      => rand(1, 14),
             'section_id'        => rand(1, 42),
-            'parent_id'         => rand(1, 100),
+            'parent_id'         => rand(1, 201),
             'academic_year'     => $this->faker->date(2022),
         ];
 

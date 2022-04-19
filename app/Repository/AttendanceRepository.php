@@ -6,6 +6,7 @@ use App\Models\Attendance;
 use App\Models\Grade;
 use App\Models\Student;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\DB;
 
 class AttendanceRepository implements AttendanceRepositoryInterface
 {
@@ -26,7 +27,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
     public function store($request)
     {
         try {
-
+            DB::beginTransaction();
             foreach ($request->attendences as $studentid => $attendence) {
 
                 if( $attendence == 'presence' ) {
@@ -41,17 +42,18 @@ class AttendanceRepository implements AttendanceRepositoryInterface
                     'classroom_id'      => $request->classroom_id,
                     'section_id'        => $request->section_id,
                     'teacher_id'        => 1,
-                    'attendence_date'   => date('Y-m-d'),
+                    'attendence_date'   => now()->format('Y-m-d'),
                     'attendence_status' => $attendence_status
                 ]);
 
             }
-            toastr()->success(trans('cpavel/messages.success'));
-
+            DB::commit();
+            toastr()->success(trans('cpanel/messages.success'));
             return redirect()->back();
         }
 
         catch (\Exception $e){
+            DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

@@ -12,9 +12,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('graduated.destroy','test')}}" method="post">
+                <form action="{{route('admin.graduated.delete','test')}}" method="GET">
                     @csrf
-                    @method('DELETE')
+                    {{-- @method('DELETE') --}}
 
                     <input type="hidden" name="id" value="{{$student->id}}">
 

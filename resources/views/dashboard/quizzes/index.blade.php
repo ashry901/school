@@ -23,7 +23,7 @@
                     </li>
 
                     <li class="breadcrumb-item">
-                        <a href="{{route('Quizzes.create')}}">
+                        <a href="{{route('admin.quizzes.create')}}">
                             {{trans('cpanel/teacher.Add New Quizzes')}}
                         </a>
                     </li>
@@ -60,7 +60,7 @@
                     <div class="card-content collapse show">
                         <div class="card-body card-dashboard">
                             <p class="card-text">
-                                <a href="{{route('Quizzes.create')}}"
+                                <a href="{{route('admin.quizzes.create')}}"
                                    class="btn btn-success" role="button"
                                    aria-pressed="true">
                                     {{trans('cpanel/teacher.Add New Quizzes')}}
@@ -91,7 +91,7 @@
                                             <td>{{$quizze->classroom->name_class}}</td>
                                             <td>{{$quizze->section->name_section}}</td>
                                             <td>
-                                                <a href="{{route('Quizzes.edit',$quizze->id)}}"
+                                                <a href="{{route('admin.quizzes.edit',$quizze->id)}}"
                                                    class="btn btn-info btn-sm" role="button" aria-pressed="true">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
@@ -107,7 +107,7 @@
                                         <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
                                              role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                                <form action="{{route('Quizzes.destroy','test')}}" method="post">
+                                                <form action="{{route('admin.quizzes.delete','test')}}" method="post">
                                                     {{method_field('delete')}}
                                                     {{csrf_field()}}
                                                     <div class="modal-content">

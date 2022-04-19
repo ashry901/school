@@ -22,7 +22,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('subjects.index')}}">
+                        <a href="{{route('admin.subjects')}}">
                             {{trans('cpanel/teacher.Subjects')}}
                         </a>
                     </li>
@@ -59,7 +59,7 @@
                     <div class="card-content collapse show">
                         <div class="card-body card-dashboard">
                             <p class="card-text">
-                                <a href="{{route('subjects.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('admin.subjects.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">
                                     {{trans('cpanel/teacher.Add New Subject')}}
                                 </a>

@@ -91,7 +91,7 @@ return [
     'Fee School'                => 'Fee School',
     'Processing Fee'            => 'Processing Fee',
     'Edit Processing Fee'       => 'Edit Processing Fee',
-    ''  => '',
+    'error_Graduated'           => 'There Is No Data In The Graduate Students Table',
     ''  => '',
     ''  => '',
     ''  => '',

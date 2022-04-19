@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Quizzes.index')}}">
+                        <a href="{{route('admin.quizzes')}}">
                             {{trans('cpanel/teacher.Quizzes')}}
                         </a>
                     </li>
@@ -50,7 +50,7 @@
                 <div class="col-xs-12">
                     <div class="col-md-12">
                         <br>
-                        <form action="{{route('Quizzes.update','test')}}" method="post">
+                        <form action="{{route('admin.quizzes.update','test')}}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="form-row">

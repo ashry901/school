@@ -17,6 +17,16 @@ Route::group([
 
     Route::get('selection', 'HomeController@select')->name('selection');
 
+    Route::group([
+        'namespace' => 'Dashboard',
+        'middleware' => 'guest:admin',
+        'prefix' => 'admin'
+    ], function () {
+        // Route::get('login', [LoginController::class, 'login'])->name('admin.login');
+        // Route::post('login', [LoginController::class, 'postLogin'])->name('admin.post.login');
+        Route::get('login', 'LoginController@login')->name('admin.login');
+        Route::post('login', 'LoginController@postLogin')->name('admin.post.login');
+    });
 });
 
 

@@ -41,7 +41,7 @@ class Student extends Authenticatable
         return $this->morphMany('App\Models\Image', 'imageable');
     }
 
-    public function Nationality()
+    public function nationality()
     {
         return $this->belongsTo('App\Models\Nationalitie', 'nationalitie_id');
     }

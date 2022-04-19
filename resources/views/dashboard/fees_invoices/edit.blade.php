@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{route('Fees.index')}}">
+                        <a href="{{route('admin.fees')}}">
                             {{trans('cpanel/fees.Accounting')}}
                         </a>
                     </li>
@@ -45,11 +45,11 @@
 
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item"
-                   href="{{route('Fees.index')}}">
+                   href="{{route('admin.fees')}}">
                     {{trans('cpanel/sidebar.Studying Fees')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('Fees_Invoices.index')}}">
+                   href="{{route('admin.fees_invoices')}}">
                     {{trans('cpanel/sidebar.Invoices')}}
                 </a>
                 <a class="dropdown-item"
@@ -57,11 +57,11 @@
                     {{trans('cpanel/sidebar.Receipt')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('ProcessingFee.index')}}">
+                   href="{{route('processingFee.index')}}">
                     {{trans('cpanel/sidebar.Fee Exclusion')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('Payment_students.index')}}">
+                   href="{{route('payment_students.index')}}">
                     {{trans('cpanel/sidebar.Exchange Receipts')}}
                 </a>
             </div>
@@ -106,7 +106,7 @@
                             </div>
 
                             <form class="form"
-                                  action="{{route('Fees_Invoices.update', 'test')}}"
+                                  action="{{route('admin.fees_invoices.update', 'test')}}"
                                   method="post"
                                   autocomplete="off">
                                 @method('PUT')

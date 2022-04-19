@@ -90,14 +90,14 @@
                                         <tr>
                                             <th scope="row">{{ $i }}</th>
                                             <td>{{ $list_sections->name_section }}</td>
-                                            <td>{{ $list_sections->My_classs->name_class }}</td>
+                                            <td>{{ $list_sections->my_classs->name_class }}</td>
                                             <td>
                                                 <label class="badge badge-{{$list_sections->status == 1 ? 'success':'danger'}}">
                                                     {{$list_sections->status == 1 ? 'Active':'Not Active'}}
                                                 </label>
                                             </td>
                                             <td>
-                                                <a href="{{route('Attendance.show', $list_sections->id)}}"
+                                                <a href="{{route('attendance.show', $list_sections->id)}}"
                                                    class="btn btn-warning btn-sm" role="button"
                                                    aria-pressed="true">
                                                     {{ trans('cpanel/sections.Students List') }}

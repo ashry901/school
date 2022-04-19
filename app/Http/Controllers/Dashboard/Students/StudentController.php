@@ -169,7 +169,7 @@ class StudentController extends Controller
             $images->save();
         }
         toastr()->success(trans('cpanel/messages.success'));
-        return redirect()->route('students.show',$request->student_id);
+        return redirect()->route('admin.students.show',$request->student_id);
     }
 
     public function download_attachment($studentsname,$filename)
@@ -185,7 +185,7 @@ class StudentController extends Controller
         // Delete in data
         image::where('id',$request->id)->where('filename',$request->filename)->delete();
         toastr()->error(trans('cpanel/messages.Delete'));
-        return redirect()->route('students.show',$request->student_id);
+        return redirect()->route('admin.students.show',$request->student_id);
     }
 
 }
