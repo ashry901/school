@@ -43,13 +43,13 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('online_classes.create')}}"
+                                <a href="{{route('admin.online_classes.create')}}"
                                    class="btn btn-success"
                                    role="button"
                                    aria-pressed="true">اضافة حصة اونلاين جديدة</a>
 
                                 <a class="btn btn-warning"
-                                   href="{{route('indirect.create')}}">
+                                   href="{{route('admin.indirect.create')}}">
                                     اضافة حصة اوفلاين جديدة
                                 </a>
                                 <br><br>
@@ -92,7 +92,7 @@
                                                             class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#Delete_receipt{{$online_classe->meeting_id}}">
-                                                        <i class="fa fa-trash"></i>
+                                                        {{trans('cpanel/students.Delete')}}
                                                     </button>
                                                 </td>
                                             </tr>

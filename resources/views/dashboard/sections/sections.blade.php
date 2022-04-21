@@ -342,8 +342,8 @@
                                                                             </label>
 
                                                                             <select name="class_id" class="form-control">
-                                                                                <option value="{{ $list_sections->My_classs->id }}">
-                                                                                    {{ $list_sections->My_classs->name_class }}
+                                                                                <option value="{{ $list_sections->my_classs->id }}">
+                                                                                    {{ $list_sections->my_classs->name_class }}
                                                                                 </option>
                                                                             </select>
                                                                         </div>

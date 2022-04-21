@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Dashboard\Students;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
+use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\online_classe;
+use App\Models\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use MacsiDigital\Zoom\Facades\Zoom;
 
 class OnlineClasseController extends Controller
@@ -21,20 +24,28 @@ class OnlineClasseController extends Controller
 
     public function create()
     {
-        $grades = Grade::all();
-        return view('dashboard.online_classes.add', compact('grades'));
+//        $grades = Grade::all();
+//        return view('dashboard.online_classes.add', compact('grades'));
+        $data = [];
+        $data['grades']     = Grade::all();
+        $data['classrooms'] = Classroom::all();
+        return view('dashboard.online_classes.add', $data);
     }
 
     public function indirectCreate()
     {
-        $grades = Grade::all();
-        return view('dashboard.online_classes.indirect', compact('grades'));
+//        $grades = Grade::all();
+//        return view('dashboard.online_classes.indirect', compact('grades'));
+        $data = [];
+        $data['grades']     = Grade::all();
+        $data['classrooms'] = Classroom::all();
+        return view('dashboard.online_classes.indirect', $data);
     }
 
     public function store(Request $request)
     {
         try {
-
+            DB::beginTransaction();
             $meeting = $this->createMeeting($request);
 
             online_classe::create([
@@ -51,11 +62,12 @@ class OnlineClasseController extends Controller
                 'start_url'     => $meeting->start_url,
                 'join_url'      => $meeting->join_url,
             ]);
-            toastr()->success(trans('cpavel/messages.success'));
-
-            return redirect()->route('online_classes.index');
+            DB::commit();
+            toastr()->success(trans('cpanel/messages.success'));
+            return redirect()->route('admin.online_classes');
 
         } catch (\Exception $e) {
+            DB::rollback();
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
@@ -63,6 +75,7 @@ class OnlineClasseController extends Controller
     public function storeIndirect(Request $request)
     {
         try {
+            DB::beginTransaction();
             online_classe::create([
                 'integration'   => false,
                 'grade_id'      => $request->grade_id,
@@ -77,10 +90,12 @@ class OnlineClasseController extends Controller
                 'start_url'     => $request->start_url,
                 'join_url'      => $request->join_url,
             ]);
-            toastr()->success(trans('cpavel/messages.success'));
+            DB::commit();
+            toastr()->success(trans('cpanel/messages.success'));
+            return redirect()->route('admin.online_classes');
 
-            return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
+            DB::rollback();
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
 
@@ -101,6 +116,18 @@ class OnlineClasseController extends Controller
         //
     }
 
+    public function getClasroom($id)
+    {
+        $list_classes = Classroom::where("grade_id", $id)->pluck("name_class", "id");
+        return $list_classes;
+    }
+
+    public function getSectione($id)
+    {
+        $list_sections = Section::where("class_id", $id)->pluck("name_section", "id");
+        return $list_sections;
+    }
+
     public function destroy(Request $request)
     {
         try {
@@ -117,9 +144,8 @@ class OnlineClasseController extends Controller
                // online_classe::where('meeting_id', $request->id)->delete();
                 online_classe::destroy($request->id);
             }
-
-            toastr()->success(trans('cpavel/messages.Delete'));
-            return redirect()->route('online_classes.index');
+            toastr()->success(trans('cpanel/messages.Delete'));
+            return redirect()->route('admin.online_classes');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }

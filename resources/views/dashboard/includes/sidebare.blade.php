@@ -344,7 +344,7 @@
         </a>
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('library.index')}}"><i></i>
+                <a class="menu-item" href="{{route('admin.library')}}"><i></i>
                     <span data-i18n="Books List">
                         {{trans('cpanel/sidebar.Books List')}}
                     </span>
@@ -366,20 +366,13 @@
 
         <ul class="menu-content">
             <li>
-                <a class="menu-item" href="{{route('online_classes.index')}}"><i></i>
+                <a class="menu-item" href="{{route('admin.online_classes')}}"><i></i>
                     <span data-i18n="Zoome Online">
                         {{trans('cpanel/sidebar.Zoom Online')}}
                     </span>
                 </a>
             </li>
 
-            <li>
-                <a class="menu-item" href="#"><i></i>
-                    <span data-i18n="Headings">
-                        {{trans('cpanel/sidebar.Headings')}}
-                    </span>
-                </a>
-            </li>
         </ul>
     </li>
 

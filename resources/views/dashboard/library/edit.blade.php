@@ -51,8 +51,9 @@
                 <div class="col-xs-12">
                     <div class="col-md-12">
                         <br>
-                        <form action="{{route('library.update','test')}}" method="post" enctype="multipart/form-data">
-                            @method('PUT')
+                        <form action="{{route('admin.library.update','test')}}"
+                              method="post" enctype="multipart/form-data">
+                            {{--@method('PUT')--}}
                             @csrf
                             <div class="form-row">
 
@@ -144,28 +145,6 @@
 
 @section('script')
 
-    <script>
-        $(document).ready(function () {
-            $('select[name="grade_id"]').on('change', function () {
-                var grade_id = $(this).val();
-                if (grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('classes') }}/" + grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="classroom_id"]').empty();
-                            $.each(data, function (key, value) {
-                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
 
     @toastr_js
     @toastr_render

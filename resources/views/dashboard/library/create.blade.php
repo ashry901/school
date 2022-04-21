@@ -51,7 +51,9 @@
                 <div class="col-xs-12">
                     <div class="col-md-12">
                         <br>
-                        <form action="{{route('library.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('admin.library.store')}}"
+                              method="post"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
 
@@ -66,11 +68,14 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="Grade_id">{{trans('Students_trans.Grade')}} :
+                                        <label for="Grade_id">
+                                            {{trans('cpanel/students.Grade')}} :
                                             <span class="text-danger">*</span>
                                         </label>
                                         <select class="custom-select mr-sm-2" name="grade_id">
-                                            <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+                                            <option selected disabled>
+                                                {{trans('cpanel/students.Choose')}}...
+                                            </option>
                                             @foreach($grades as $grade)
                                                 <option value="{{ $grade->id }}">
                                                     {{ $grade->name }}
@@ -83,10 +88,11 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Classroom_id">
-                                            {{trans('Students_trans.classrooms')}} :
+                                            {{trans('cpanel/students.classrooms')}} :
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select class="custom-select mr-sm-2" name="classroom_id">
+                                        <select class="custom-select mr-sm-2"
+                                                name="classroom_id">
 
                                         </select>
                                     </div>
@@ -94,8 +100,11 @@
 
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="section_id">{{trans('Students_trans.section')}} : </label>
-                                        <select class="custom-select mr-sm-2" name="section_id">
+                                        <label for="section_id">
+                                            {{trans('cpanel/students.section')}} :
+                                        </label>
+                                        <select class="custom-select mr-sm-2"
+                                                name="section_id">
 
                                         </select>
                                     </div>
@@ -109,15 +118,19 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="academic_year">
-                                            المرفقات :
+                                            Attachment :
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="file" accept="application/pdf" name="file_name" required>
+                                        <input type="file" accept="application/pdf"
+                                               name="file_name" required>
                                     </div>
                                 </div>
                             </div>
 
-                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
+                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
+                                    type="submit">
+                                {{ trans('cpanel/students.submit') }}
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -131,28 +144,7 @@
 
 
 @section('script')
-    <script>
-        $(document).ready(function () {
-            $('select[name="grade_id"]').on('change', function () {
-                var grade_id = $(this).val();
-                if (grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('classes') }}/" + grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="classroom_id"]').empty();
-                            $.each(data, function (key, value) {
-                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script>
+
 
     @toastr_js
     @toastr_render

@@ -50,17 +50,27 @@
                         </div>
                     @endif
 
-                    <form method="post" action="{{ route('indirect.store') }}" autocomplete="off">
+                    <form class="form"
+                          method="post"
+                          action="{{ route('admin.indirect.store') }}"
+                          autocomplete="off"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="Grade_id">{{ trans('Students_trans.Grade') }} : <span
-                                            class="text-danger">*</span></label>
+                                    <label for="Grade_id">
+                                        {{ trans('cpanel/students.Grade') }} :
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <select class="custom-select mr-sm-2" name="grade_id">
-                                        <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
+                                        <option selected disabled>
+                                            {{ trans('cpanel/students.Choose') }}...
+                                        </option>
                                         @foreach ($grades as $grade)
-                                            <option value="{{ $grade->id }}">{{ $grade->name }}</option>
+                                            <option value="{{ $grade->id }}">
+                                                {{ $grade->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -68,18 +78,23 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="Classroom_id">{{ trans('Students_trans.classrooms') }} : <span
-                                            class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="classroom_id">
-
+                                    <label for="Classroom_id">
+                                        {{ trans('cpanel/students.classrooms') }} :
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="custom-select mr-sm-2"
+                                            name="classroom_id">
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="section_id">{{ trans('Students_trans.section') }} : </label>
-                                    <select class="custom-select mr-sm-2" name="section_id">
+                                    <label for="section_id">
+                                        {{ trans('cpanel/students.section') }} :
+                                    </label>
+                                    <select class="custom-select mr-sm-2"
+                                            name="section_id">
 
                                     </select>
                                 </div>
@@ -90,39 +105,52 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>رقم الاجتماع : <span class="text-danger">*</span></label>
-                                    <input class="form-control" name="meeting_id" type="number">
+                                    <label>رقم الاجتماع  :
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" name="meeting_id"
+                                           type="number">
                                 </div>
                             </div>
 
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>عنوان الحصة : <span class="text-danger">*</span></label>
+                                    <label>عنوان الحصة :
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <input class="form-control" name="topic" type="text">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>تاريخ ووقت الحصة : <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="datetime-local" name="start_time">
+                                    <label>تاريخ ووقت الحصة :
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" type="datetime-local"
+                                           name="start_time">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>مدة الحصة بالدقائق : <span class="text-danger">*</span></label>
-                                    <input class="form-control" name="duration" type="number">
+                                    <label>مدة الحصة بالدقائق :
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" name="duration"
+                                           type="number">
                                 </div>
                             </div>
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>كلمة المرور الاجتماع : <span class="text-danger">*</span></label>
-                                    <input class="form-control" name="password" type="text">
+                                    <label>كلمة المرور الاجتماع :
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" name="password"
+                                           type="text">
                                 </div>
                             </div>
-
 
                         </div>
 
@@ -130,21 +158,28 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>لينك البدء : <span class="text-danger">*</span></label>
-                                    <input class="form-control" name="start_url" type="text">
+                                    <label>لينك البدء :
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input class="form-control" name="start_url"
+                                           type="text">
                                 </div>
                             </div>
 
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <label>لينك الدخول للطلاب : <span class="text-danger">*</span></label>
+                                    <label>لينك الدخول للطلاب :
+                                        <span class="text-danger">*</span>
+                                    </label>
                                     <input class="form-control" name="join_url" type="text">
                                 </div>
                             </div>
                         </div>
 
                         <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
-                                type="submit">{{ trans('Students_trans.submit') }}</button>
+                                type="submit">
+                            {{ trans('cpanel/students.submit') }}
+                        </button>
                     </form>
 
                 </div>

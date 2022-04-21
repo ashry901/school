@@ -92,18 +92,19 @@
                                             <td>{{$quizze->section->name_section}}</td>
                                             <td>
                                                 <a href="{{route('admin.quizzes.edit',$quizze->id)}}"
-                                                   class="btn btn-info btn-sm" role="button" aria-pressed="true">
-                                                    <i class="fa fa-edit"></i>
+                                                   class="btn btn-outline-info btn-sm">
+                                                    {{ trans('cpanel/sections.Edit') }}
                                                 </a>
-
-                                                <button type="button" class="btn btn-danger btn-sm"
-                                                        data-toggle="modal"
-                                                        data-target="#delete_exam{{ $quizze->id }}"
-                                                        title="حذف">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
+                                                &nbsp; &nbsp; &nbsp; &nbsp;
+                                                <a href="#"
+                                                   class="btn btn-outline-danger btn-sm"
+                                                   data-toggle="modal"
+                                                   data-target="#delete_exam{{ $quizze->id }}">
+                                                    {{ trans('cpanel/sections.Delete') }}
+                                                </a>
                                             </td>
                                         </tr>
+
                                         <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
                                              role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
@@ -113,22 +114,27 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 style="font-family: 'Cairo', sans-serif;"
-                                                                class="modal-title" id="exampleModalLabel">حذف اختبار</h5>
+                                                                class="modal-title" id="exampleModalLabel">
+                                                                {{ trans('cpanel/sections.Delete Quizzes') }}
+                                                            </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                     aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$quizze->name}}</p>
+                                                            <p> {{ trans('cpanel/myclasses.Warning_Grade') }} {{$quizze->name}}</p>
                                                             <input type="hidden" name="id" value="{{$quizze->id}}">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
-                                                                <button type="submit"
-                                                                        class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
+                                                                        data-dismiss="modal">
+                                                                    {{ trans('cpanel/myclasses.Close') }}
+                                                                </button>
+                                                                <button type="submit" class="btn btn-danger">
+                                                                    {{ trans('cpanel/myclasses.submit') }}
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>

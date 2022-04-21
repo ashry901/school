@@ -28,9 +28,23 @@
     </div>
 
     <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1" id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ft-settings icon-left"></i> Settings</button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"><a class="dropdown-item" href="card-bootstrap.html">Cards</a><a class="dropdown-item" href="component-buttons-extended.html">Buttons</a></div>
+        <div class="btn-group float-md-right" role="group"
+             aria-label="Button group with nested dropdown">
+            <button class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1"
+                    id="btnGroupDrop1" type="button" data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                <i class="ft-settings icon-left"></i>
+                Settings
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="card-bootstrap.html">
+                    Cards
+                </a>
+                <a class="dropdown-item" href="component-buttons-extended.html">
+                    Buttons
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -42,21 +56,23 @@
                 <div class="col-xl-12 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
-                            <a href="{{route('library.create')}}" class="btn btn-success btn-sm" role="button"
-                               aria-pressed="true">اضافة كتاب جديد</a><br><br>
+                            <a href="{{route('admin.library.create')}}"
+                               class="btn btn-success btn-sm" role="button"
+                               aria-pressed="true">Add New Book</a>
+                            <br><br>
                             <div class="table-responsive">
-                                <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                <table class="table table-hover table-sm table-bordered p-0"
                                        data-page-length="50"
                                        style="text-align: center">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>اسم الكتب</th>
-                                        <th>اسم المعلم</th>
-                                        <th>المرحلة الدراسية</th>
-                                        <th>الصف الدراسي</th>
-                                        <th>القسم</th>
-                                        <th>العمليات</th>
+                                        <th>Name Book</th>
+                                        <th>Name Teacher</th>
+                                        <th>Grade</th>
+                                        <th>Classroom</th>
+                                        <th>Section</th>
+                                        <th style="width: 25%">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -70,22 +86,22 @@
                                             <td>{{$book->section->name_section}}</td>
                                             <td>
                                                 <a href="{{route('downloadAttachment', $book->file_name)}}"
-                                                   title="تحميل الكتاب"
+                                                   title="download book"
                                                    class="btn btn-warning btn-sm"
                                                    role="button" aria-pressed="true">
-                                                    <i class="fas fa-download"></i>
+                                                    Download
                                                 </a>
-                                                <a href="{{route('library.edit', $book->id)}}"
+                                                <a href="{{route('admin.library.edit', $book->id)}}"
                                                    class="btn btn-info btn-sm"
                                                    role="button" aria-pressed="true">
-                                                    <i class="fa fa-edit"></i>
+                                                    Edit
                                                 </a>
                                                 <button type="button"
                                                         class="btn btn-danger btn-sm"
                                                         data-toggle="modal"
                                                         data-target="#delete_book{{ $book->id }}"
                                                         title="حذف">
-                                                    <i class="fa fa-trash"></i>
+                                                    Delete
                                                 </button>
                                             </td>
                                         </tr>

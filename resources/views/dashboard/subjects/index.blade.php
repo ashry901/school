@@ -86,26 +86,26 @@
                                             <td>{{$subject->classroom->name_class}}</td>
                                             <td>{{$subject->teacher->name}}</td>
                                             <td>
-                                                <a href="{{route('subjects.edit',$subject->id)}}"
-                                                   class="btn btn-info btn-sm"
-                                                   role="button" aria-pressed="true">
-                                                    <i class="ft-edit-2"></i>
+                                                <a href="{{route('admin.subjects.edit',$subject->id)}}"
+                                                   class="btn btn-outline-info btn-sm">
+                                                    {{ trans('cpanel/sections.Edit') }}
                                                 </a>
                                                 &nbsp; &nbsp; &nbsp; &nbsp;
-                                                <button type="button" class="btn btn-danger btn-sm"
-                                                        data-toggle="modal"
-                                                        data-target="#delete_subject{{ $subject->id }}"
-                                                        title="{{trans('cpanel/teacher.Delete')}}">
-                                                    <i class="ft-trash-2"></i>
-                                                </button>
+                                                <a href="#"
+                                                   class="btn btn-outline-danger btn-sm"
+                                                   data-toggle="modal"
+                                                   data-target="#delete_subject{{ $subject->id }}">
+                                                    {{ trans('cpanel/sections.Delete') }}
+                                                </a>
+
                                             </td>
                                         </tr>
 
                                         <div class="modal fade" id="delete_subject{{$subject->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                                <form action="{{route('subjects.destroy','test')}}" method="post">
-                                                    {{method_field('delete')}}
-                                                    {{csrf_field()}}
+                                                <form action="{{route('admin.subjects.delete','test')}}" method="GET">
+
+                                                    @csrf
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">

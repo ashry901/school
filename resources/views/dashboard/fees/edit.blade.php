@@ -49,7 +49,7 @@
                     {{trans('cpanel/sidebar.Studying Fees')}}
                 </a>
                 <a class="dropdown-item"
-                   href="{{route('fees_invoices.index')}}">
+                   href="{{route('admin.fees_invoices')}}">
                     {{trans('cpanel/sidebar.Invoices')}}
                 </a>
                 <a class="dropdown-item"

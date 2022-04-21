@@ -41,6 +41,6 @@ return [
     'Today\'s Date'      => 'تاريخ اليوم',
     'Absence'            => 'غياب',
     'Presence'           => 'حضور',
-    '' => '',
+    'Delete Quizzes'     => 'حذف اختبار',
     '' => '',
 ];

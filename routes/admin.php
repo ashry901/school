@@ -130,17 +130,65 @@ Route::group([
             Route::resource('processingFee', 'ProcessingFeeController');
             Route::resource('payment_students', 'PaymentController');
             Route::resource('attendance', 'AttendanceController');
-            Route::resource('online_classes', 'OnlineClasseController');
 
-            Route::get('/indirect', 'OnlineClasseController@indirectCreate')
-                ->name('indirect.create');
-            Route::post('/indirect', 'OnlineClasseController@storeIndirect')
-                ->name('indirect.store');
+//            Route::resource('online_classes', 'OnlineClasseController');
+//            Route::get('/indirect', 'OnlineClasseController@indirectCreate')
+//                ->name('indirect.create');
+//            Route::post('/indirect', 'OnlineClasseController@storeIndirect')
+//                ->name('indirect.store');
 
-            Route::resource('library', 'LibraryController');
+            Route::group(['prefix' => 'online_classes'], function () {
+                Route::get('/', 'OnlineClasseController@index')
+                    ->name('admin.online_classes');
+                Route::get('create', 'OnlineClasseController@create')
+                    ->name('admin.online_classes.create');
+                Route::get('show/{id}', 'OnlineClasseController@show')
+                    ->name('admin.online_classes.show');
+                Route::post('store', 'OnlineClasseController@store')
+                    ->name('admin.online_classes.store');
+                Route::get('edit/{id}', 'OnlineClasseController@edit')
+                    ->name('admin.online_classes.edit');
+                Route::post('update/{id}', 'OnlineClasseController@update')
+                    ->name('admin.online_classes.update');
+                Route::get('delete/{id}','OnlineClasseController@destroy')
+                    ->name('admin.online_classes.delete');
 
-            Route::get('download_file/{filename}', 'LibraryController@downloadAttachment')
-                ->name('downloadAttachment');
+                Route::get('/indirect', 'OnlineClasseController@indirectCreate')
+                    ->name('admin.indirect.create');
+                Route::post('/indirect', 'OnlineClasseController@storeIndirect')
+                    ->name('admin.indirect.store');
+
+                Route::get('get_classrooms/{id}', 'OnlineClasseController@getClasroom')
+                    ->name('get_classrooms');
+                Route::get('get_sections/{id}', 'OnlineClasseController@getSectione')
+                    ->name('get_sections');
+            });
+
+            //Route::resource('library', 'LibraryController');
+            Route::group(['prefix' => 'library'], function () {
+                Route::get('/', 'LibraryController@index')
+                    ->name('admin.library');
+                Route::get('create', 'LibraryController@create')
+                    ->name('admin.library.create');
+                Route::get('show/{id}', 'LibraryController@show')
+                    ->name('admin.library.show');
+                Route::post('store', 'LibraryController@store')
+                    ->name('admin.library.store');
+                Route::get('edit/{id}', 'LibraryController@edit')
+                    ->name('admin.library.edit');
+                Route::post('update/{id}', 'LibraryController@update')
+                    ->name('admin.library.update');
+                Route::get('delete/{id}','LibraryController@destroy')
+                    ->name('admin.library.delete');
+
+                Route::get('download_file/{filename}', 'LibraryController@downloadAttachment')
+                    ->name('downloadAttachment');
+
+                Route::get('get_classrooms/{id}', 'LibraryController@getClasroom')
+                    ->name('get_classrooms');
+                Route::get('get_sections/{id}', 'LibraryController@getSectione')
+                    ->name('get_sections');
+            });
         });
 
         //==============================Subjects============================
