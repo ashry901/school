@@ -48,11 +48,15 @@ Route::group([
         Route::view('add_parent','livewire.show_form')->name('add_parent');
 
         //==============================teachers============================
-        Route::group(['prefix' => 'admin'], function () {
-            Route::resource('teachers', 'TeacherController');
+        Route::group(['prefix' => 'teacher', 'namespace' => 'Teachers'], function () {
+            //Route::resource('teachers', 'TeacherController');
+            Route::get('/', 'TeacherController@index')->name('admin.teachers');
+            Route::get('create', 'TeacherController@create')->name('admin.teachers.create');
+            Route::post('store', 'TeacherController@store')->name('admin.teachers.store');
+            Route::get('edit/{id}', 'TeacherController@edit')->name('admin.teachers.edit');
+            Route::post('update/{id}', 'TeacherController@update')->name('admin.teachers.update');
+            Route::get('delete/{id}','TeacherController@destroy')->name('admin.teachers.delete');
         });
-
-
 
         //==============================Students============================
         Route::group(['prefix' => 'admin', 'namespace' => 'Students'], function () {
