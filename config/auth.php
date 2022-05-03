@@ -18,20 +18,20 @@ return [
             'provider' => 'admins',
         ],
 
-//        'teacher' => [
-//            'driver' => 'session',
-//            'provider' => 'teachers',
-//        ],
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ],
 
-//        'student' => [
-//            'driver' => 'session',
-//            'provider' => 'students',
-//        ],
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
 
-//        'guardian' => [
-//            'driver' => 'session',
-//            'provider' => 'guardians',
-//        ],
+        'guardian' => [
+            'driver' => 'session',
+            'provider' => 'guardians',
+        ],
 
 
     ],
@@ -47,20 +47,20 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
-//        'teachers' => [
-//            'driver' => 'eloquent',
-//            'model' => App\Models\Teacher::class,
-//        ],
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teacher::class,
+        ],
 
-//        'students' => [
-//            'driver' => 'eloquent',
-//            'model' => App\Models\Student::class,
-//        ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
 
-//        'guardians' => [
-//            'driver' => 'eloquent',
-//            'model' => App\Models\Guardian::class,
-//        ],
+        'guardians' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Guardian::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',

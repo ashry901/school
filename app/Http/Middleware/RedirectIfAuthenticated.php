@@ -20,32 +20,22 @@ class RedirectIfAuthenticated
 //        return $next($request);
 //    }
 
-//    public function handle($request, Closure $next)
-//    {
-//        if (auth('web')->check()) {
-//            return redirect(RouteServiceProvider::HOME);
-//        }
-//        if (auth('web')->check()) {
-//            return redirect(RouteServiceProvider::ADMIN);
-//        }
-//        if (auth('student')->check()) {
-//            return redirect(RouteServiceProvider::STUDENT);
-//        }
-//        if (auth('teacher')->check()) {
-//            return redirect(RouteServiceProvider::TEACHER);
-//        }
-//        if (auth('parent')->check()) {
-//            return redirect(RouteServiceProvider::GUARDIAN);
-//        }
-//        return $next($request);
-//    }
-
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
 
             if($guard === 'admin')
                 return redirect(RouteServiceProvider::ADMIN);
+
+            elseif ($guard === 'teacher')
+                return redirect(RouteServiceProvider::TEACHER);
+
+            elseif ($guard === 'student')
+                return redirect(RouteServiceProvider::STUDENT);
+
+            elseif ($guard === 'guardian')
+                return redirect(RouteServiceProvider::GUARDIAN);
+
             else
                 return redirect(RouteServiceProvider::HOME);
 

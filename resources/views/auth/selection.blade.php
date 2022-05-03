@@ -79,13 +79,15 @@
                                                     <span class="la la-user"></span>
                                                     Sign In Admin
                                                 </a>
-
-                                                <a href="#" class="btn btn-social mb-1 btn-block btn-lg btn-pinterest">
+                                                {{-- {{route('teacher.login-teacher')}} --}}
+                                                <a href="{{route('teacher.login-teacher')}}"
+                                                   class="btn btn-social mb-1 btn-block btn-lg btn-pinterest">
                                                     <span class="la la-user"></span>
                                                     Sign In Teacher
                                                 </a>
 
-                                                <a href="#" class="btn btn-social mb-1 btn-block btn-lg btn-pinterest">
+                                                <a href="{{route('student.login-student')}}"
+                                                   class="btn btn-social mb-1 btn-block btn-lg btn-pinterest">
                                                     <span class="la la-user"></span>
                                                     Sign In Student
                                                 </a>

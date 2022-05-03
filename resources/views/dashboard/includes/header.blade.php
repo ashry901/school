@@ -161,7 +161,7 @@
                         <a class="dropdown-toggle nav-link dropdown-user-link"
                            href="#" data-toggle="dropdown">
                             <span class="mr-1 user-name text-bold-700">
-                                {{auth('admin')->user()->name}}
+                            {{-- {{auth('admin')->user()->name}} --}}
                             </span>
 
                             <span class="avatar avatar-online">

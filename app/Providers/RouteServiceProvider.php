@@ -12,9 +12,9 @@ class RouteServiceProvider extends ServiceProvider
 {
     public const HOME = '/';
     public const ADMIN = '/admin';
-//    public const TEACHER = '/teacher';
-//    public const STUDENT = '/student';
-//    public const GUARDIAN = '/guardian';
+    public const TEACHER = '/teacher';
+    public const STUDENT = '/student';
+    public const GUARDIAN = '/guardian';
 
     protected $namespace = 'App\\Http\\Controllers';
 
@@ -35,6 +35,18 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/teacher.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/student.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/guardian.php'));
         });
     }
 
